@@ -1,0 +1,79 @@
+@use '../_reset';
+@use '../_mixin' as *;
+@use '../_common' as c;
+
+.weather-wrap{
+    overflow: hidden;
+    margin: 0 auto{
+        top: spCalc(82);
+
+    };
+    width: spCalc(630);
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    @include pc{
+        width: 100%;
+    }
+}
+
+.sunny-icon{
+    width: calc(75.21px / 2);
+}
+.rain-icon{
+    width: calc(70px / 2);
+}
+.cloud-icon{
+    width: calc(178px / 2);
+}
+.snow-icon{
+    width: calc(76px / 2);
+}
+
+
+.weather-info{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    flex-wrap: nowrap;
+    gap: 45px;
+    font-size: spFont(40);
+    @include pc{
+        font-size: pcFont(20);
+        gap: 50px;
+    }
+    &:first-of-type {
+        padding-left: 40px;
+        animation: loop3 50s -25s linear infinite;
+    }
+    &:last-of-type {
+        animation: loop4 50s linear infinite;   
+    }
+
+    .weather-icon{
+        line-height: 0;
+        margin-right: 9px;
+        @include pc{
+            margin-right: 20px;
+        }
+    }
+
+    .area-weather-wrap{
+        font-family: sichandich, sans-serif;
+        white-space: nowrap;
+        .area-weather{
+            display: flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+    }
+}
+
+.weather-txt{
+    white-space: nowrap;
+    span{
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: solid 1px #000;
+    }
+}

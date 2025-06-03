@@ -1,0 +1,109 @@
+<?php
+    $apiKey = "ae1de34a065b92514dcacf0d4295d081";
+    // 複数の都市を指定
+    $cities = ["Tokyo", "Osaka", "Okinawa", "Sapporo", "Fukuoka"];
+    $weatherData = [];
+
+    foreach ($cities as $city) {
+        // APIリクエストURLの作成
+        $url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=ja";
+
+        // APIからデータを取得
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+    }
+?>
+
+<section class="weather-wrap">
+    <!-- 1つ目のweather-info -->
+    <div class="weather-info">
+        <div class="area-weather-wrap"><div class="area-weather" id="tokyo"></div></div>
+        <div class="area-weather-wrap"><div class="area-weather" id="osaka"></div></div>
+        <div class="area-weather-wrap"><div class="area-weather" id="okinawa"></div></div>
+        <div class="area-weather-wrap"><div class="area-weather" id="sapporo"></div></div> <!-- 北海道を札幌に変更 -->
+        <div class="area-weather-wrap"><div class="area-weather" id="fukuoka"></div></div>
+    </div>
+
+    <!-- 2つ目のweather-info -->
+    <div class="weather-info">
+        <div class="area-weather-wrap"><div class="area-weather" id="tokyo-2"></div></div>
+        <div class="area-weather-wrap"><div class="area-weather" id="osaka-2"></div></div>
+        <div class="area-weather-wrap"><div class="area-weather" id="okinawa-2"></div></div>
+        <div class="area-weather-wrap"><div class="area-weather" id="sapporo-2"></div></div> <!-- 札幌の新しいID -->
+        <div class="area-weather-wrap"><div class="area-weather" id="fukuoka-2"></div></div>
+    </div>
+</section>
+
+
+<script>
+    const apiKey = 'ae1de34a065b92514dcacf0d4295d081';
+const cities = {
+    tokyo: 'Tokyo,jp',
+    osaka: 'Osaka,jp',
+    okinawa: 'Okinawa,jp',
+    sapporo: 'Sapporo,jp', // hokkaidoをsapporoに変更
+    fukuoka: 'Fukuoka,jp'
+};
+
+// 天気情報を取得する関数
+async function getWeather(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ja`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data); // APIレスポンスの内容を確認
+
+        if (data.cod === 200 && data.weather && data.weather[0]) {
+            const weatherMain = data.weather[0].main;
+            const temperature = `${data.main.temp.toFixed(0)}℃`;  
+            const weatherIcon = getWeatherIcon(weatherMain);
+
+            return { temperature, weatherIcon };
+        } else {
+            console.error("Weather data missing:", data);
+            return { temperature: '', weatherIcon: '' };
+        }
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        return { temperature: '', weatherIcon: '' };
+    }
+}
+
+// 天気の状態に対応する画像を返す関数
+function getWeatherIcon(main) {
+    switch(main) {
+        case 'Clear': return '<div class="weather-icon"><img class="sunny-icon" src="<%= rootURL %>/assets/img/sunny.png" alt="晴れ"></div>';
+        case 'Rain': return '<div class="weather-icon"><img class="rain-icon" src="<%= rootURL %>/assets/img/rain.png" alt="雨"></div>';
+        case 'Clouds': return '<div class="weather-icon"><img class="cloud-icon" src="<%= rootURL %>/assets/img/cloud.png" alt="曇り"></div>';
+        case 'Snow': return '<div class="weather-icon"><img class="snow-icon" src="<%= rootURL %>/assets/img/snow.png" alt="雪"></div>';
+        default: return '';
+    }
+}
+
+// 各都市の天気情報を表示
+async function displayWeather() {
+    const tokyoWeather = await getWeather(cities.tokyo);
+    const osakaWeather = await getWeather(cities.osaka);
+    const okinawaWeather = await getWeather(cities.okinawa);
+    const sapporoWeather = await getWeather(cities.sapporo); // hokkaidoからsapporoに変更
+    const fukuokaWeather = await getWeather(cities.fukuoka);
+
+    // 1つ目のweather-infoに表示
+    document.getElementById('tokyo').innerHTML = `${tokyoWeather.weatherIcon} <div class="weather-txt"><span>tokyo</span>${tokyoWeather.temperature}</div>`;
+    document.getElementById('osaka').innerHTML = `${osakaWeather.weatherIcon} <div class="weather-txt"><span>osaka</span>${osakaWeather.temperature}</div>`;
+    document.getElementById('okinawa').innerHTML = `${okinawaWeather.weatherIcon} <div class="weather-txt"><span>okinawa</span>${okinawaWeather.temperature}</div>`;
+    document.getElementById('sapporo').innerHTML = `${sapporoWeather.weatherIcon} <div class="weather-txt"><span>hokkaido</span>${sapporoWeather.temperature}</div>`;
+    document.getElementById('fukuoka').innerHTML = `${fukuokaWeather.weatherIcon} <div class="weather-txt"><span>fukuoka</span>${fukuokaWeather.temperature}</div>`;
+
+    // 2つ目のweather-infoに表示
+    document.getElementById('tokyo-2').innerHTML = `${tokyoWeather.weatherIcon} <div class="weather-txt"><span>tokyo</span>${tokyoWeather.temperature}</div>`;
+    document.getElementById('osaka-2').innerHTML = `${osakaWeather.weatherIcon} <div class="weather-txt"><span>osaka</span>${osakaWeather.temperature}</div>`;
+    document.getElementById('okinawa-2').innerHTML = `${okinawaWeather.weatherIcon} <div class="weather-txt"><span>okinawa</span>${okinawaWeather.temperature}</div>`;
+    document.getElementById('sapporo-2').innerHTML = `${sapporoWeather.weatherIcon} <div class="weather-txt"><span>hokkaido</span>${sapporoWeather.temperature}</div>`;
+    document.getElementById('fukuoka-2').innerHTML = `${fukuokaWeather.weatherIcon} <div class="weather-txt"><span>fukuoka</span>${fukuokaWeather.temperature}</div>`;
+}
+
+// ページが読み込まれたときに天気情報を表示
+displayWeather();
+
+</script>

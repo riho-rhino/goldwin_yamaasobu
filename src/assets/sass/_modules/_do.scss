@@ -1,0 +1,63 @@
+@use '../_reset';
+@use '../_mixin' as *;
+@use '../_common' as c;
+
+
+.yamaasobu-do{
+    margin-top: spCalc(100);
+
+
+    .do-text{
+        line-height: 1;
+        .do-ttl{
+            font-size: spFont(120);
+            text-align: center;
+        }
+        
+        .sec-subttl{
+            margin-top: spCalc(64);
+            font-size: spFont(26);
+            text-align: center;
+
+        }
+
+        .do_line{
+            width: spCalc(690);
+            margin: 0 auto{
+                left: 0;
+                top: spCalc(-21)
+
+            };
+        }
+    }
+
+    .do-lead-wrap{
+        text-align: center;
+        position: relative;
+        padding: 0{
+            top: spCalc(112);
+            bottom: spCalc(80);
+        };
+        .comment{
+            position: absolute;
+            width: spCalc(415);
+            line-height: 0;
+            top: 0;
+            left: 0;
+            margin: 0 {
+                top: spCalc(-20);
+                left: spCalc(60);
+            };
+            
+        }
+    }
+
+    .sec-lead{
+        font-size: spFont(30);
+        font-weight: 600;
+        width: spCalc(630);
+        margin: 0 auto;
+        letter-spacing: 0.01em;
+        line-height: calc(45 / 30);
+    }
+}

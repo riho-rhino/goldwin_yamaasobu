@@ -1,0 +1,66 @@
+@use '../_reset';
+@use '../_mixin' as *;
+@use '../_common' as c;
+
+
+
+
+.map-wrap{
+    position: relative;
+    .map-image{
+        line-height: 0;
+    }
+    .map-num{
+        position: absolute;
+        width: spCalc(88);
+        line-height: 0;
+    }
+}   
+
+.yamaasobu-map{
+    position: relative;
+    width: 100%;
+    background-image: url(../img/sp_map-bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    .map-text{
+        text-align: center;
+        color: #fff;
+        padding-top: spCalc(230);
+        .map-ttl {
+            line-height: 1;
+            font-size: spFont(120);
+        }
+        .sec-subttl{
+            margin-top: spCalc(50);
+            line-height: 1;
+            font-size: spFont(28);
+            transform: rotate(0);
+            transition: transform 0.5s ease;
+            &.move{
+                transform: rotate(-5deg);
+            }
+        }
+        .sec-lead{
+            margin:0{
+                top: spCalc(50);
+            } 
+            line-height: calc(45 / 30);
+            font-size: spFont(30);
+        }   
+    }
+}
+
+.map-wrap{
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+    .map-image{
+        margin: 0 auto{
+            top: spCalc(50);
+        };
+        width: spCalc(1200);
+        
+    }
+}
