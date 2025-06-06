@@ -6,13 +6,15 @@
     overflow: hidden;
     margin: 0 auto{
         top: spCalc(82);
-
     };
     width: spCalc(630);
     display: flex;
     align-items: center;
     vertical-align: middle;
     @include pc{
+        margin: 0 auto{
+            top: pcCalc(50);
+        };
         width: 100%;
     }
 }

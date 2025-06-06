@@ -2,34 +2,109 @@
 @use '../_mixin' as *;
 @use '../_common' as c;
 
-
-
-
-.map-wrap{
-    position: relative;
-    .map-image{
-        line-height: 0;
-    }
-    .map-num{
-        position: absolute;
-        width: spCalc(88);
-        line-height: 0;
-    }
-}   
-
 .yamaasobu-map{
+    margin-top: spCalc(50);
     position: relative;
     width: 100%;
     background-image: url(../img/sp_map-bg.png);
     background-size: 100%;
     background-repeat: no-repeat;
+    @include pc{
+        margin-top: pcCalc(100);
+        background-image: url(../img/pc_map-bg.png);
+    }
+}
+.map-wrap{
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+    
+    .map-image{
+        line-height: 0;
+        position: relative;
+        margin: 0 auto{
+            top: spCalc(50);
+        };
+        width: spCalc(1200);
+    }
+    .map-num{
+        position: absolute;
+        width: calc(88 / 1200) * 100%;
+        z-index: 100;
+        line-height: 0;
+        cursor: pointer;
+        .red-num{
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
+        .black-num{
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+            transition: all .3s ease;
+            &:hover{
+                opacity: 0;
+            }
+        }
+    }
+    @include pc{
+        overflow-y: visible;
+        overflow-x: visible;
+        .map-image{
+            width: pcCalc(850.34);
+            
+        }
+        .map-num{
+            width: calc(42 / 850.34) * 100%;
+        }
+    }
+}   
+
+.cloud{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    pointer-events: none;
+    &.cloud-a{
+        top: 0;
+        img{
+            animation: furafura 12s linear infinite;
+        }
+    }
+    &.cloud-b{
+        bottom: 0;
+        img{
+            animation: furafura_2 12s linear infinite;
+        }
+    }
+}
+
+.yamaasobu-map{
+    
     .map-text{
         text-align: center;
         color: #fff;
-        padding-top: spCalc(230);
+        padding-top: spCalc(175);
         .map-ttl {
-            line-height: 1;
             font-size: spFont(120);
+            text-align: center;
+            position: relative;
+            display: table;
+            margin: 0 auto;
+            line-height: 1;
+            &::after {
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+                animation-name: wiggle;
+                content: attr(data-text);
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
         }
         .sec-subttl{
             margin-top: spCalc(50);
@@ -37,6 +112,7 @@
             font-size: spFont(28);
             transform: rotate(0);
             transition: transform 0.5s ease;
+
             &.move{
                 transform: rotate(-5deg);
             }
@@ -47,20 +123,228 @@
             } 
             line-height: calc(45 / 30);
             font-size: spFont(30);
-        }   
+        }  
+        @include pc{
+            padding-top: 0;
+            .map-ttl{
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: min(pcFont(120),120px);
+                margin: 0{
+                    top: pcCalc(250);
+                    left: pcCalc(90);
+
+                };
+                display: block;
+
+            }
+            .sec-subttl{
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: min(pcFont(20),20px);
+                margin-top: pcCalc(410);
+                margin-left: pcCalc(50);
+            }
+            .sec-lead{
+                position: absolute;
+                font-size: min(pcFont(20),20px);
+                right: 0;
+                bottom: 0;
+                margin:0{
+                    top: 0;
+                    bottom: pcCalc(200);
+                    right: pcCalc(50);
+                } 
+                z-index: 50;
+                text-align: left;
+                letter-spacing: 0.19em;
+            }
+        } 
     }
 }
 
-.map-wrap{
-    width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    position: relative;
-    .map-image{
-        margin: 0 auto{
-            top: spCalc(50);
-        };
-        width: spCalc(1200);
-        
+
+.map-num_1{
+    bottom: 0;
+    left: 0;
+    margin: 0 {
+        bottom: calc(379 / 1200) * 100%;
+        left: calc(398 / 1200) * 100%;
+    };     
+    @include pc{
+        margin: 0 {
+            bottom: calc(310 / 850.34) * 100%;
+            left: calc(243 / 850.34) * 100%;
+        };  
+    }
+}
+
+.map-num_2{
+    bottom: 0;
+    right: 0;
+    margin-bottom: 52.7%;
+    margin-right: 10.245%;
+    @include pc{
+        margin: 0 {
+            bottom: calc(461 / 850.34) * 100%;
+            right: calc(54 / 850.34) * 100%;
+        };  
+    }
+}
+
+.map-num_3{
+    top: 0;
+    right: 0;
+    margin: 0 {
+        top: calc(534 / 1200) * 100%;
+        right: calc(509 / 1200) * 100%;
+    };     
+    @include pc{
+        margin: 0 {
+            top: calc(442 / 850.34) * 100%;
+            right: calc(326 / 850.34) * 100%;
+        };  
+    }
+}
+
+.map-num_4{
+    top: 0;
+    right: 0;
+    margin: 0 {
+        top: calc(467 / 1200) * 100%;
+        right: calc(343 / 1200) * 100%;
+    };     
+    @include pc{
+        margin: 0 {
+            top: calc(333 / 850.34) * 100%;
+            right: calc(236 / 850.34) * 100%;
+        };  
+    }
+}
+
+
+.map-num_5{
+    bottom: 0;
+    left: 0;
+    margin: 0 {
+        bottom: calc(539 / 1200) * 100%;
+        left: calc(306 / 1200) * 100%;
+    };     
+    @include pc{
+        margin: 0 {
+            bottom: calc(240 / 850.34) * 100%;
+            left: calc(387 / 850.34) * 100%;
+        };  
+    }
+}
+
+
+.map-num_6{
+    bottom: 0;
+    right: 0;
+    margin-bottom: 48.4%;
+    margin-right: 4.5%;
+    @include pc{
+        margin: 0 {
+            bottom: calc(318 / 850.34) * 100%;
+            right: calc(310 / 850.34) * 100%;
+        };  
+    }
+}
+
+.map-num_7{
+    top: 0;
+    left: 0;
+    margin: 0 {
+        top: calc(357 / 1200) * 100%;
+        left: calc(240 / 1200) * 100%;
+    };   
+    @include pc{
+        margin: 0 {
+            top: calc(171 / 850.34) * 100%;
+            left: calc(400 / 850.34) * 100%;
+        };  
+    }   
+}
+
+.map-num_8{
+    top: 0;
+    left: 0;
+    margin: 0 {
+        top: calc(210 / 1200) * 100%;
+        left: calc(507 / 1200) * 100%;
+    };     
+    @include pc{
+        margin: 0 {
+            top: calc(313 / 850.34) * 100%;
+            left: calc(150 / 850.34) * 100%;
+        };  
+    } 
+}
+
+.map-num_9{
+    bottom: 0;
+    left: 0;
+    margin: 0 {
+        bottom: calc(320 / 1200) * 100%;
+        left: calc(452 / 1200) * 100%;
+    };      
+    @include pc{
+        margin: 0 {
+            bottom: calc(410 / 850.34) * 100%;
+            left: calc(242 / 850.34) * 100%;
+        };  
+    }
+}
+
+.map-num_10{
+    bottom: 0;
+    left: 0;
+    margin: 0 {
+        bottom: calc(516 / 1200) * 100%;
+        left: calc(271 / 1200) * 100%;
+    };    
+    @include pc{
+        margin: 0 {
+            bottom: calc(433 / 850.34) * 100%;
+            left: calc(59 / 850.34) * 100%;
+        };  
+    }
+}
+
+
+@keyframes wiggle {
+    0% {
+        transform: skewX(0) skewY(0) translateY(1px);
+    }
+    17% {
+        transform: skewX(.3deg) skewY(.1deg) translate(-1px, -1px);
+    }
+
+    20% {
+        transform: skewX(-.3deg) skewY(-.1deg) translate(1px);
+    }
+
+    32% {
+        transform: skewX(.3deg) skewY(0deg) translate(0);
+    }
+    48% {
+        transform: skewX(0deg) skewY(0deg) translate(0);
+    }
+    63% {
+        transform: skewX(-.3deg) skewY(-.1deg) translate(1px);
+    }
+    79% {
+        transform: skewX(-.1deg) skewY(.1deg) translateY(-1px);
+    }
+
+    90% {
+        transform: skewX(-.3deg) skewY(-.1deg) translate(1px);
+    }
+    
+    100% {
+        transform: skewX(0deg) skewY(0deg) translate(0);
     }
 }

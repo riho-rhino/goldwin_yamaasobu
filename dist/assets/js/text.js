@@ -1,0 +1,6 @@
+(()=>{"use strict";var e={r:e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})}};
+/*!*******************************!*\
+  !*** ./src/assets/js/text.js ***!
+  \*******************************/
+e.r({});var t=document.querySelectorAll(".word");t.forEach((function(e){var t=e.textContent.split("");e.textContent="",t.forEach((function(t){var n=document.createElement("span");n.textContent=t,n.className="letter",e.append(n)}))}));var n=0,o=t.length-1;t[n]instanceof HTMLElement&&(t[n].style.opacity="1");var r=function(){var e=t[n],r=n===o?t[0]:t[n+1];Array.from(e.children).forEach((function(e,t){setTimeout((function(){e.className="letter out"}),80*t)})),r instanceof HTMLElement&&(r.style.opacity="1"),Array.from(r.children).forEach((function(e,t){e.className="letter behind",setTimeout((function(){e.className="letter in"}),340+80*t)})),n=n===o?0:n+1};r(),setInterval(r,4e3)})();
+//# sourceMappingURL=text.js.map

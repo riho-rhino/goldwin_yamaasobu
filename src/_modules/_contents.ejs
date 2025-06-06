@@ -1,20 +1,49 @@
 
 <!-- contents Start -->
-<div id="contents" class="yamaasobu">
-    <%- include('./_op.ejs') %>
-    <%- include('./_mv.ejs') %>
-    <%- include('./_map.ejs') %>
-    <%- include('./_how.ejs') %>
-    <%- include('./_do.ejs') %>
-    <%- include('./_field.ejs') %>
-    <%- include('./_weather.ejs') %>
-    <%- include('./_foot.ejs') %>
-</div>
-
-
+<article>
+    <div id="contents" class="yamaasobu">
+        <%- include('./_op.ejs') %>
+        <%- include('./_mv.ejs') %>
+        <%- include('./_map.ejs') %>
+        <%- include('./_how.ejs') %>
+        <%- include('./_do.ejs') %>
+        <%- include('./_field.ejs') %>
+        <%- include('./_weather.ejs') %>
+        <%- include('./_foot.ejs') %>
+        <%- include('./_anchor.ejs') %>
+    </div>
+    <div class="yamaasobu_modal">
+        <div class="yamaasobu_modal_bg">
+            <div class="modal_close">
+                <p>CLOSE</p>
+                <span class="close-btn">
+                    <img src="<%= rootURL %>/assets/img/close.png" alt="">
+                </span>
+            </div>
+            <div class="yamaasobu_modal_list">
+                <%- include('./_modal1.ejs') %>
+                <%- include('./_modal2.ejs') %>
+                <%- include('./_modal3.ejs') %>
+                <%- include('./_modal4.ejs') %>
+                <%- include('./_modal5.ejs') %>
+                <%- include('./_modal6.ejs') %>
+                <%- include('./_modal7.ejs') %>
+                <%- include('./_modal8.ejs') %>
+                <%- include('./_modal9.ejs') %>
+                <%- include('./_modal10.ejs') %>
+            </div>
+        </div>
+    </div>
+</article>
+<!-- 本番に入れる時はjqueryを消す -->
 <script src="https://unpkg.com/swiper@8.4.7/swiper-bundle.min.js"></script>
 <!-- 本番に入れる時はjqueryを消す -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- 本番に入れる時はjqueryを消す -->
+<!-- <script src="<%= rootURL %>/assets/plugin/js/index.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <!-- 本番に入れる時はjqueryを消す -->
 <script src="<%= rootURL %>/assets/js/index.js"></script>
-<script src="<%= rootURL %>/assets/js/swiper.js"></script>
+<script src="<%= rootURL %>/assets/js/text.js"></script>
+<!-- <script src="<%= rootURL %>/assets/js/swiper.js"></script> -->

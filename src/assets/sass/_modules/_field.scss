@@ -3,32 +3,82 @@
 @use '../_common' as c;
 
 
-.field-bg{
-    margin-top: spCalc(160);
-    line-height: 0;
-
-}
 
 .field{
+    overflow: hidden;
     color: #fff;
-    background: #AEB5B1;
-    h2{
+    background-repeat: repeat;
+    position: relative;
+    background-image: url(../img/sp_field-bg.png);
+    background-repeat: no-repeat;
+    margin-top: spCalc(100);
+    background-size: 100%;
+    
+    .fieldttl{
+        padding-top: spCalc(200);
         font-size: spFont(80);
         text-align: center;
         line-height: 1;
+        margin: 0 auto;
+        width: fit-content;
+        position: relative;
+        &::after {
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-name: wiggle;
+            content: attr(data-text);
+            left: 0;
+            position: absolute;
+            bottom: 0;
+        }
     }
 
     .field-subttl{
-        margin-top: spCalc(67);
+        margin-top: spCalc(50);
         text-align: center;
         font-size: spFont(28);
     }
     .field-txt{
         width: spCalc(630);
+        white-space: nowrap;
         margin: 0 auto{
             top: spCalc(45)
         };
         text-align: center;
+        font-size: spFont(30);
+        font-weight: bold;
+    }
+    @include pc{
+        margin-top: pcCalc(100);
+        background-image: url(../img/pc_field-bg.png);
+        .fieldttl{
+            padding-top: pcCalc(150);
+            font-size: min(pcFont(60),60px);
+            text-align: left;
+            
+            margin: 0{
+                left: pcCalc(100);
+            };
+        }
+    
+        .field-subttl{
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: pcCalc(164);
+            margin-left: pcCalc(472);
+            font-size: min(pcFont(18),18px);
+        }
+        .field-txt{
+            font-size: min(pcFont(20),20px);
+            width: pcCalc(700);
+            text-align: left;
+            padding-left: pcCalc(100);
+            margin: 0 auto{
+                top: pcCalc(45);
+                left: 0;
+            };
+        }
     }
 }
 
@@ -39,7 +89,18 @@
     padding: 0{
         top: spCalc(20)!important;
         left: 25px!important;
+        bottom: spCalc(150)!important;
     };
+    @include pc{
+        margin: 0 {
+            top: pcCalc(-46)!important;
+        };
+        padding: 0{
+            top: pcCalc(96)!important;
+            left: 0!important;
+            bottom: pcCalc(150)!important;
+        };
+    }
     
     .field-photo{
         line-height: 0;
@@ -56,6 +117,16 @@
             font-size: spFont(28);
             margin-top: spCalc(60);
         }
+        @include pc{
+            .swiper-ttl{
+                font-size: pcFont(18);
+                margin-top: 30px;
+            }
+            .swiper-text{
+                font-size: pcFont(14);
+                margin-top: 30px;
+            } 
+        }
     }
 
     .swiper-button-prev,
@@ -63,6 +134,13 @@
         top: 35% !important;
         width: 27.5px!important;
         height: 47.5px!important;
+        @include pc{
+            width: pcCalc(52)!important;
+            max-width: 52px;
+            height: 32px!important;
+            top: 0!important;
+            margin-top: 0!important;
+        }
     }
     .swiper-button-prev::after,
     .swiper-button-next::after {
@@ -77,18 +155,49 @@
     }
     .swiper-button-prev{
         left: 13px!important;
+        @include pc{
+            left: unset!important;
+            right: 0!important;
+            margin-left: unset!important;   
+            margin-right: pcCalc(248);   
+        }
         &::after {
             background-image: url(../img/f-prev.png);
-            
+            @include pc{
+                background-image: url(../img/pc-field-prev.png);
+                transition: all .3s ease;
+            }
         }
+        &:hover{
+            &::after {
+                @include pc{
+                    background-image: url(../img/pc-field-prev_hover.png);
+                }
+            }
+        }
+        
     }
     
     .swiper-button-next {
         right: 13px!important;
+        @include pc{
+            right: 0!important;
+            margin-right: pcCalc(100);   
+        }
         &::after {
             background-image: url(../img/f-next.png);
-                
-        }       
+            @include pc{
+                background-image: url(../img/pc-field-next.png);
+                transition: all .3s ease;
+            }
+        }    
+        &:hover{
+            &::after {
+                @include pc{
+                    background-image: url(../img/pc-field-next_hover.png);
+                }
+            }
+        }   
     }
     .swiper-pagination{
         font-size: spFont(50)!important;
@@ -99,6 +208,14 @@
         line-height: 1!important;
         width: fit-content!important;
         margin-left: spCalc(80)!important;
+        @include pc{
+            left: unset!important;
+            right: 0!important;
+            font-size: pcFont(18)!important;
+            margin-left: unset!important;
+            margin-right: pcCalc(172)!important;
+            margin-top: pcCalc(3)!important;
+        }
     }
 }
 

@@ -1,0 +1,376 @@
+@use '../_reset';
+@use '../_mixin' as *;
+@use '../_common' as c;
+
+.yamaasobu_modal_bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    display: none;
+    pointer-events: none;
+    // visibility: hidden;
+    // transition: all .5s ease;
+    background-color: #fff;
+    &.open{
+        // visibility: visible;
+        pointer-events: visible;
+    }
+}
+
+
+.modal_close{
+    position: fixed;
+    z-index: 600;
+    width: spCalc(170);
+    top: 0;
+    right: 0;
+    border: solid 1px #DBDBDB;
+    background: #fff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    padding: spCalc(20) 0;
+    margin: 0{
+        top: spCalc(60);
+        right: spCalc(60);
+    };
+    p{
+        font-size: spFont(24);
+        line-height: 1;
+    }
+    .close-btn{
+        width: 10px;
+        line-height: 0;
+        margin-left: 5px;
+        transform: rotate(0);
+        transition: transform .5s ease;
+    }
+    &:hover{
+        .close-btn{
+            transform: rotate(180deg);
+        }
+    }
+    @include pc{
+        width: pcCalc(100);
+        max-width: 100px;
+        padding: 10px 0;
+        margin: 0{
+            top: pcCalc(100);
+            right: pcCalc(100);
+        };
+        p{
+            font-size: min(pcFont(14),14px);
+        }
+        .close-btn{
+            width: calc(14 / 100) * 100%;
+            max-width: 14px;
+        }
+    }
+}
+
+.yamaasobu_modal_list{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    .yamaasobu_modal_content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        pointer-events:none;
+        transform: opacity .8s ease;
+        &.show{
+            opacity: 1;
+            pointer-events:visible;
+        }
+        @include pc{
+            display: flex;
+            align-items: flex-start;
+            vertical-align: baseline;
+            justify-content: space-around;
+            // gap: pcCalc(185);
+        }
+    }
+}
+
+.yamaasobu_modal_inner{
+    @include pc{
+        width: pcCalc(530);
+        margin-top: pcCalc(180);
+    }
+}
+
+.reccomend_item-line{
+    margin:0 auto{
+        top: spCalc(160);
+    };
+    overflow: hidden;
+    width: 90%;
+    
+    .reccomend_item-inner{
+        display: flex;
+        vertical-align: middle;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+        .reccomend_item{
+            display: flex;
+            vertical-align: middle;
+            align-items: center;
+            flex-wrap: nowrap;
+            &:first-of-type {
+                animation: loop5 50s -25s linear infinite;
+            }
+            &:last-of-type {
+                animation: loop6 50s linear infinite;  
+            }
+            gap: 10px;
+            p{
+                font-size: spFont(36);
+                line-height: 1; 
+                white-space: nowrap;
+            }
+            .arrow{
+                width: 15px;
+                line-height: 0;
+            }
+        }
+    }
+    @include pc{
+        margin:0 auto;
+        width: 80%;
+        .reccomend_item-inner{
+            .reccomend_item{
+                p{
+                    font-size: min(pcFont(20),20px);
+                }
+                .arrow{
+                    width: 15px;
+                }
+            }
+        }        
+    }
+
+}
+
+.modal-head{
+    .map-point-num{
+        font-size: spFont(80);
+        color: c.$txt; 
+        line-height: 1;
+        padding: 0{
+            top: spCalc(120);
+            left: spCalc(120);
+        };
+    }
+
+    .map-point-ill{
+        width: spCalc(400);
+        margin: 0 auto{
+            top: spCalc(30)
+        };
+    }
+    .situation_ja,.situation_en{
+        color: c.$txt;
+        line-height: 1;
+        text-align: center;
+        display: block;
+    }
+    .situation_ja{
+        font-size: spFont(36);
+        margin-top: spCalc(50)
+    }
+    .situation_en{
+        font-size: spFont(24);
+        margin-top: spCalc(20)
+    }
+
+    .map-posint-txt{
+        width: spCalc(630);
+        font-size: spFont(28);
+        line-height: 42 / 28;
+        margin: 0 auto{
+            top: spCalc(50)
+        };
+    }
+    @include pc{
+        position: sticky;
+        top: pcCalc(200);
+        width: pcCalc(300);
+        max-width: 400px;
+        // margin-top: pcCalc(200);
+        .map-point-num{
+            font-size: min(pcFont(50),50px);
+            color: c.$txt; 
+            line-height: 1;
+            padding: 0;
+        }
+    
+        .map-point-ill{
+            width: calc(200 / 300) * 100%;
+            margin: 0 auto;
+        }
+        .situation_ja{
+            font-size: min(pcFont(20),20px);
+            margin-top: calc(41 / 300) * 100%;
+        }
+        .situation_en{
+            font-size: min(pcFont(12),12px);
+            margin-top: calc(10 / 300) * 100%;
+        }
+    
+        .map-posint-txt{
+            width: 100%;
+            font-size: min(pcFont(16),16px);
+            line-height: calc(24 / 16);
+            margin: 0 auto{
+                top: calc(30 / 300) * 100%;
+            };
+        }
+    }
+}
+
+
+.items-list-wrap{
+    margin-top: spCalc(20);
+    .clothes-kind{
+        display: flex;
+        vertical-align: bottom;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: spCalc(690);
+        border-bottom: dotted #000 1.5px;
+        margin: 0 auto{
+            top: spCalc(100)
+        };
+        span{
+            display: block;   
+            &:first-of-type{
+                font-size: spFont(36);
+                font-weight: 600;
+            }
+            &:last-of-type{
+                font-size: spFont(30);
+            }
+        }
+    }
+    @include pc{
+        margin-top: calc(70 / 530) * 100%;
+        .clothes-kind{
+            width: 100%;
+            vertical-align: middle;
+            align-items: center;
+            margin: 0 auto{
+                top: calc(80 / 530) * 100%;
+            };
+            span{
+                &:first-of-type{
+                    font-size: min(pcFont(20),20px);
+                }
+                &:last-of-type{
+                    font-size: min(pcFont(14),14px);
+                }
+            }
+        }        
+    }
+}
+
+.yamaasobu_modal_item-list{
+    display: flex;
+    vertical-align: baseline;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: spCalc(40);
+    margin-top: spCalc(30);
+    
+    li{
+        position: relative;
+       width: spCalc(295); 
+       margin-top: spCalc(50);
+       a{
+        color: #2A2525;
+       }
+       .clothes-ph{
+        line-height: 0;
+       }
+       .item-name{
+        font-size: spFont(26);
+        line-height: calc(39 / 26);
+        margin-top: calc(20 / 295) * 100%;
+       }
+       .item-price{
+        font-size: spFont(24);
+        line-height: 1;
+        margin-top: calc(20 / 295) * 100%;
+        color: #BABABA;
+       }
+    }
+    @include pc{
+        justify-content: space-between;
+        gap: 0;
+        margin-top: 0;
+        li{
+            width: calc(245 / 530) * 100%; 
+            margin-top: calc(50 / 530) * 100%;
+            
+            .item-name{
+             font-size: min(pcFont(16),16px);
+             margin-top: calc(20 / 530) * 100%;
+            }
+            .item-price{
+             font-size: min(pcFont(16),16px);
+             margin-top: calc(20 / 530) * 100%;
+            }
+         }
+    }
+}
+
+.item-point{
+    width: 168px;
+    background: c.$txt;
+    border-radius: 10px;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0{
+        right: 15px;
+        top: -15px
+    };
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 80%;
+        border-style: solid;
+        border-width: 5px 0 0 8px;
+        border-color: #dd2f0e transparent transparent;
+        translate: calc(-50% + 0.9px) 100%;
+        transform: skew(8deg);
+        transform-origin: top;
+    }
+    p{
+        color: #fff;
+        line-height: 1;
+        white-space: nonwrap;
+        text-align: center;
+        font-size: spFont(22);
+
+    }
+    @include pc{
+        width: 126px;
+        p{
+            font-size: min(pcFont(12),12px);
+        }
+    }
+}

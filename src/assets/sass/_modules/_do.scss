@@ -5,6 +5,10 @@
 
 .yamaasobu-do{
     margin-top: spCalc(100);
+    @include pc{
+        margin-top: pcCalc(150);
+        position: relative;
+    }
 
 
     .do-text{
@@ -12,6 +16,18 @@
         .do-ttl{
             font-size: spFont(120);
             text-align: center;
+            position: relative;
+            display: table;
+            margin: 0 auto;
+            &::after {
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+                animation-name: wiggle;
+                content: attr(data-text);
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
         }
         
         .sec-subttl{
@@ -29,35 +45,80 @@
 
             };
         }
+        @include pc{
+            .do-ttl{
+                font-size: min(pcFont(120),120px);
+                text-align: left;
+                margin-left: pcCalc(140);
+                display: block;
+            }
+            
+            .sec-subttl{
+                margin-top: pcCalc(40);
+                margin-left: pcCalc(100);
+                font-size: min(pcFont(18),18px);
+                text-align: left;
+    
+            }
+    
+            .do_line{
+                width: pcCalc(600);
+                max-width: 600px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin: 0 auto{
+                    left: 0;
+                    top: 0;
+                };
+            }
+        }
     }
 
     .do-lead-wrap{
         text-align: center;
         position: relative;
         padding: 0{
-            top: spCalc(112);
             bottom: spCalc(80);
         };
         .comment{
-            position: absolute;
-            width: spCalc(415);
+            width: spCalc(320);
             line-height: 0;
-            top: 0;
-            left: 0;
-            margin: 0 {
+            margin: 0 auto{
                 top: spCalc(-20);
                 left: spCalc(60);
             };
             
         }
+        @include pc{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: fit-content;
+            padding: 0{
+                bottom: 0;
+                top: pcCalc(62);
+                right: pcCalc(100);
+            };
+            .comment{
+                width: 218px;
+                margin: 0 auto{
+                    top: 0;
+                    right: 0;
+                    left: 0
+                };
+            }
+        }
+        .sec-lead{
+            font-size: spFont(30);
+            font-weight: 600;
+            margin-top: spCalc(30);
+            @include pc{
+                font-size: min(pcFont(20),20px);
+                text-align: left;
+                margin-top: pcCalc(19);
+            }
+        }
     }
 
-    .sec-lead{
-        font-size: spFont(30);
-        font-weight: 600;
-        width: spCalc(630);
-        margin: 0 auto;
-        letter-spacing: 0.01em;
-        line-height: calc(45 / 30);
-    }
 }

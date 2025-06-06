@@ -7,14 +7,35 @@ $pcw : 1440;
 
  $txt:#DD2F0E;
  
+ body{
+   &.noscroll {
+      overflow: hidden;
+   }
+}
 
- .ja_r{
+ .yamaasobu{
+   font-family: zen-kaku-gothic-new, sans-serif;
+  font-weight: 400;
+  font-style: normal;   
+  background-image: url(../img/bg_sp.gif);
+  background-size: 100%;
+  background-repeat: repeat-y;
+}
+
+
+ .zen_r{
+   font-family: zen-kaku-gothic-new, sans-serif;
+   font-weight: 400;
+   font-style: normal;
+ }
+
+ .zen_m{
     font-family: zen-kaku-gothic-new, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
  }
 
- .ja_b{
+ .zen_b{
     font-family: zen-kaku-gothic-new, sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -26,12 +47,12 @@ $pcw : 1440;
     font-style: normal;
  }
 
- .yamaasobu{
-   font-family: zen-kaku-gothic-new, sans-serif;
-   font-weight: 400;
-   font-style: normal;   
- }
 
+ .input{
+  font-family: "input-mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+ }
  
 
  @keyframes loop {
@@ -70,6 +91,25 @@ $pcw : 1440;
      transform: translateX(-210%);
    }
 }
+ 
+
+ @keyframes loop5 {
+   0% {
+     transform: translateX(100%);
+   }
+   to {
+     transform: translateX(-105%);
+   }
+}
+
+@keyframes loop6 {
+   0% {
+     transform: translateX(0);
+   }
+   to {
+     transform: translateX(-205%);
+   }
+}
 
 .sp{
    display: block;
@@ -85,3 +125,19 @@ $pcw : 1440;
    }
 }
 
+@keyframes furafura {
+  0%,100% {
+      transform: translateY(7px);
+  }
+  50% {
+      transform: translateY(-7px);
+  }
+}
+@keyframes furafura_2 {
+  0%,100% {
+      transform: translateY(-7px);
+  }
+  50% {
+      transform: translateY(7px);
+  }
+}

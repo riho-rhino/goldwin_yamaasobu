@@ -1,13 +1,14 @@
-<section class="yamaasobu-do">
+<section class="yamaasobu-do yamaasobu-section" id="do">
     <div class="do-text">
-        <h2 class="do-ttl sic">
+        <h2 class="do-ttl sic" data-text="do">
             do
         </h2>
         <p class="sec-subttl">
             （　いざ、出発！　）
         </p>
         <div class="do_line">
-            <img src="<%= rootURL %>/assets/img/line_2.png" alt="">
+            <img class="sp" src="<%= rootURL %>/assets/img/line_2.png" alt="">
+            <img class="pc" src="<%= rootURL %>/assets/img/pc-line_2.png" alt="">
         </div>
     </div>
     <div class="sec-lead-wrap do-lead-wrap">
@@ -15,7 +16,7 @@
             <img src="<%= rootURL %>/assets/img/do_comment.png" alt="">
         </div>
         <p class="sec-lead">
-            登山レポ､山行のスケジュール､レコメンドと合わせたオススメウェア､行動中のポイント､楽しみ方を紹介｡
+            登山レポ、山行のスケジュール、<br>行動中のポイント、楽しみ方を紹介。
         </p>
     </div>
 
@@ -23,25 +24,35 @@
     <div class="do-swiper swiper">
         <div class="swiper-wrapper do-swiper-wrapper">
             <div class="swiper-slide item">
-                <p class="howdo-pagenation">1/4</p>
-                <div class="howdo-photo">
+                <div class="new-article sp">
+                    <img src="<%= rootURL %>/assets/img/new_icon.gif" alt="">
+                    <p class="zen_m">new</p>
+                </div>
+                <p class="howdo-pagenation input">1/4</p>
+                <div class="howdo-photo sp">
                     <img src="<%= rootURL %>/assets/img/dammy_3.png" alt="">
                 </div>
                 <div class="how-swiper-wrap">
-                    <p class="swiper-ttl">
+                    <div class="new-article pc">
+                        <img src="<%= rootURL %>/assets/img/new_icon.gif" alt="">
+                        <p class="zen_m">new</p>
+                    </div>
                         日帰り登山の装備
                     </p>
-                    <p class="swiper-date">
+                    <!-- <p class="swiper-date">
                         ( 2025.05.01 update! )
-                    </p>
+                    </p> -->
                     <p class="swiper-text">
                         電車や車で出かけ、その日中には家に帰って来られる日帰り登山。運動不足の解消や比較的手軽に自然と触れ合いリ…
                     </p>
                 </div>
+                <div class="howdo-photo pc">
+                    <img src="<%= rootURL %>/assets/img/dammy_3.png" alt="">
+                </div>
             </div>
             <div class="swiper-slide item">
-                <p class="howdo-pagenation">2/4</p>
-                <div class="howdo-photo">
+                <p class="howdo-pagenation input">2/4</p>
+                <div class="sp howdo-photo">
                     <img src="<%= rootURL %>/assets/img/dammy_2.jpg" alt="">
                 </div>
                 <div class="how-swiper-wrap">
@@ -55,10 +66,13 @@
                         電車や車で出かけ、その日中には家に帰って来られる日帰り登山。運動不足の解消や比較的手軽に自然と触れ合いリ…
                     </p>
                 </div>
+                <div class="pc howdo-photo">
+                    <img src="<%= rootURL %>/assets/img/dammy_2.jpg" alt="">
+                </div>
             </div>
             <div class="swiper-slide item">
-                <p class="howdo-pagenation">3/4</p>
-                <div class="howdo-photo">
+                <p class="howdo-pagenation input">3/4</p>
+                <div class="sp howdo-photo">
                     <img src="<%= rootURL %>/assets/img/dammy_1.jpg" alt="">
                 </div>
                 <div class="how-swiper-wrap">
@@ -72,10 +86,13 @@
                         電車や車で出かけ、その日中には家に帰って来られる日帰り登山。運動不足の解消や比較的手軽に自然と触れ合いリ…
                     </p>
                 </div>
+                <div class="pc howdo-photo">
+                    <img src="<%= rootURL %>/assets/img/dammy_1.jpg" alt="">
+                </div>
             </div>
             <div class="swiper-slide item">
-                <p class="howdo-pagenation">4/4</p>
-                <div class="howdo-photo">
+                <p class="howdo-pagenation input">4/4</p>
+                <div class="sp howdo-photo">
                     <img src="<%= rootURL %>/assets/img/dammy_1.jpg" alt="">
                 </div>
                 <div class="how-swiper-wrap">
@@ -88,6 +105,9 @@
                     <p class="swiper-text">
                         電車や車で出かけ、その日中には家に帰って来られる日帰り登山。運動不足の解消や比較的手軽に自然と触れ合いリ…
                     </p>
+                </div>
+                <div class="pc howdo-photo">
+                    <img src="<%= rootURL %>/assets/img/dammy_1.jpg" alt="">
                 </div>
             </div>
         </div>

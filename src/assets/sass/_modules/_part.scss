@@ -10,10 +10,23 @@
         border: solid 1px #000;
         transition: transform .2s linear;
         transform: translateY(0);
+        background: #fff;
         &.swiper-slide-active{
             transform: translateY(-3%);
+            .howdo-pagenation{
+                opacity: 1;
+            }
         }
 
+    }
+    @include pc{
+        padding-top: pcCalc(80)!important;
+        .swiper-slide{
+            display: flex;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 }
 
@@ -23,24 +36,38 @@
     text-align: center;
     letter-spacing: 0.5em;
     font-size:spFont(32);
+    opacity: 0;
+    transition: opacity .3s ease;
+    @include pc{
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size:pcFont(18);
+        padding: calc(50 / 900) * 100% 0 0 calc(50 / 900) * 100%;
+    }
 }
 
 .howdo-photo{
     width: calc(450 / 630) * 100%;
     margin: 0 auto;
+    @include pc{
+        width: calc(375 / 900) * 100%;
+        margin: calc(50 / 900) * 100% calc(50 / 900) * 100% calc(50 / 900) * 100% 0;
+    }
 }
 
 .how-swiper-wrap,.do-swiper-wrap{
+    position: relative;
     width: calc(510 / 630) * 100%;
     margin: 0 auto{
         top: calc(50 / 630) * 100%;
     };
+    
 
     .swiper-ttl{
         line-height: 1;
         font-weight: 600;
         font-size:spFont(34);
-
     }
     .swiper-date{
         line-height: 1;
@@ -53,9 +80,30 @@
     .swiper-text{
         margin-top: calc(30 / 510) * 100%;
         padding-bottom: calc(80 / 510) * 100%;
+        font-size:spFont(28);
     }
-    font-size:spFont(28);
-    
+    @include pc{
+        width: calc(375 / 900) * 100%;
+        max-width: 400px;
+        margin: 0 {
+            left: calc(50 / 900) * 100%;
+        };
+        letter-spacing: 0.15em;
+        .swiper-ttl{
+            font-size: min(pcFont(20),20px);
+        }
+        .swiper-date{
+            font-size:pcFont(14);
+            margin-top: calc(20 / 375) * 100%;
+        }
+        .swiper-text{
+            font-size: min(pcFont(16),16px);
+            padding-bottom: 0;
+            margin-top: calc(50 / 375) * 100%;
+            line-height: calc(32 / 16);
+            
+        }
+    }
 }
 
 .how-swiper,.do-swiper{
@@ -64,6 +112,11 @@
         top: 52%!important;
         height: 36px!important;
         width: 52px!important;
+        @include pc{
+            width: pcCalc(104)!important;
+            max-width: 104px;
+            height: 64px!important;
+        }
     }
     .swiper-button-prev::after,
     .swiper-button-next::after {
@@ -79,17 +132,74 @@
     .swiper-button-prev{
         left: 5%;
         &::after {
-            background-image: url(../img/w_prev.png);
-            
+            background-image: url(../img/w_prev.png);     
+        }
+        @include pc{
+            left: 13%;
+            &::after {
+                background-image: url(../img/pc-w-prev.png);    
+                transition: all .3s ease; 
+            }
+        }
+        &:hover{
+            @include pc{
+                &::after {
+                    background-image: url(../img/pc-howdo-prev.png);     
+                }
+            }
         }
     }
     
     .swiper-button-next {
         right: 3%;
         &::after {
-            background-image: url(../img/w_next.png);
-                
+            background-image: url(../img/w_next.png);           
         }
-            
+        @include pc{
+            right: 12%;
+            &::after {
+                background-image: url(../img/pc-w-next.png);     
+                transition: all .3s ease; 
+            }
+        }  
+        &:hover{
+            @include pc{
+                &::after {
+                    background-image: url(../img/pc-howdo-next.png);     
+                }
+            }
+        } 
+    }
+}
+
+
+.new-article{
+    position: absolute;
+    width: 50.5px;
+    top: 0;
+    left: 0;
+    margin: 0{
+        top: calc(154 / 650) * 100%;
+        left: calc(60 / 650) * 100%;
+    };
+    p{
+        position: absolute;
+        display: block;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: spFont(40);
+        line-height: 1;
+        color: #fff;
+    }
+    @include pc{
+        width: calc(51 / 375) * 100%;
+        max-width: 55px;
+        margin: 0{
+            top: calc(-50 / 375) * 100%;
+        };
+        p{
+            font-size: min(pcFont(20),20px);
+        }
     }
 }

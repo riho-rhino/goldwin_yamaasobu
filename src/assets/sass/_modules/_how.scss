@@ -4,13 +4,25 @@
 
 .yamaasobu-how{
     margin-top: spCalc(100);
-
+    
 
     .how-text{
         line-height: 1;
         .how-ttl{
             font-size: spFont(120);
             text-align: center;
+            position: relative;
+            display: table;
+            margin: 0 auto;
+            &::after {
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+                animation-name: wiggle;
+                content: attr(data-text);
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
         }
         
         .sec-subttl{
@@ -30,30 +42,89 @@
         }
     }
 
+    
+    @include pc{
+        margin-top: pcCalc(100);
+        position: relative;
+        .how-text{
+            .how-ttl{
+                font-size: min(pcFont(120),120px);
+                width: fit-content;
+                display: block;
+                margin: 0 auto{
+                    right: pcCalc(127)
+                };
+            }
+            .sec-subttl{
+                font-size: pcFont(18);
+                width: fit-content;
+                margin: 0 auto{
+                    right: pcCalc(98);
+                    top: pcCalc(40);
+                    
+                };
+            }
+            .how_line{
+                position: absolute;
+                width: pcCalc(600);
+                max-width: 600px;
+                right: 0;
+                top: 0;
+                margin: 0 auto{
+                    right: 0;
+                    top: pcCalc(-16);
+    
+                };
+            }
+        }
+    }
     .how-lead-wrap{
         text-align: center;
         position: relative;
         padding: 0{
-            top: spCalc(113);
             bottom: spCalc(80);
         };
         .comment{
-            position: absolute;
             width: spCalc(320);
             line-height: 0;
-            top: 0;
-            right: 0;
-            margin: 0 {
+            margin: 0 auto{
                 top: spCalc(-20);
                 right: spCalc(60.45);
             };
             
         }
+        @include pc{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0{
+                bottom: 0;
+                top: pcCalc(63);
+                left: pcCalc(100);
+            };
+            .comment{
+                width: pcCalc(170);
+                max-width: 170px;
+                margin: 0 auto{
+                    top: 0;
+                    right: 0;
+                    left: 0
+                };
+            }
+        }
+        .sec-lead{
+            font-size: spFont(30);
+            font-weight: 600;
+            margin-top: spCalc(30);
+            @include pc{
+                font-size: min(pcFont(20),20px);
+                text-align: left;
+                margin-top: pcCalc(30);
+            }
+        }
     }
 
-    .sec-lead{
-        font-size: spFont(30);
-        font-weight: 600;
-    }
+
+    
 }
-
