@@ -69,6 +69,7 @@
     width: 100%;
     left: 0;
     pointer-events: none;
+    z-index: 20;
     &.cloud-a{
         top: 0;
         img{
@@ -267,6 +268,7 @@
             left: calc(400 / 850.34) * 100%;
         };  
     }   
+    
 }
 
 .map-num_8{
@@ -315,36 +317,3 @@
 }
 
 
-@keyframes wiggle {
-    0% {
-        transform: skewX(0) skewY(0) translateY(1px);
-    }
-    17% {
-        transform: skewX(.3deg) skewY(.1deg) translate(-1px, -1px);
-    }
-
-    20% {
-        transform: skewX(-.3deg) skewY(-.1deg) translate(1px);
-    }
-
-    32% {
-        transform: skewX(.3deg) skewY(0deg) translate(0);
-    }
-    48% {
-        transform: skewX(0deg) skewY(0deg) translate(0);
-    }
-    63% {
-        transform: skewX(-.3deg) skewY(-.1deg) translate(1px);
-    }
-    79% {
-        transform: skewX(-.1deg) skewY(.1deg) translateY(-1px);
-    }
-
-    90% {
-        transform: skewX(-.3deg) skewY(-.1deg) translate(1px);
-    }
-    
-    100% {
-        transform: skewX(0deg) skewY(0deg) translate(0);
-    }
-}

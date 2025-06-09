@@ -18,6 +18,9 @@
 @function pcCalc($value){
   @return calc($value / 1400) * 100%;
 }
+@function map($value){
+  @return calc($value / 850) * 100%;
+}
 
 // fontsize
 

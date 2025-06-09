@@ -336,10 +336,10 @@ gsap.fromTo(
 gsap.fromTo(
   ".cloud", 
   {
-      yPercent: 30, 
+      yPercent: 25, 
   },
   {
-      yPercent: -30, 
+      yPercent: -25, 
       ease: "none", 
       scrollTrigger: {
       trigger: ".yamaasobu-map", 
