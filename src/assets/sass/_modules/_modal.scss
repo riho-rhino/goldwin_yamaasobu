@@ -24,6 +24,7 @@
 
 
 .modal_close{
+    cursor: pointer;
     position: fixed;
     z-index: 600;
     width: spCalc(170);
@@ -62,7 +63,7 @@
         max-width: 100px;
         padding: 10px 0;
         margin: 0{
-            top: pcCalc(100);
+            top: pcCalc(50);
             right: pcCalc(100);
         };
         p{
@@ -115,6 +116,7 @@
     };
     overflow: hidden;
     width: 90%;
+    font-weight: 600;
     
     .reccomend_item-inner{
         display: flex;
@@ -174,10 +176,16 @@
     }
 
     .map-point-ill{
+        position: relative;
+        line-height: 0;
         width: spCalc(400);
         margin: 0 auto{
             top: spCalc(30)
         };
+        .point-img{
+            border: solid 1px #000;
+            border-radius: 50%;
+        }
     }
     .situation_ja,.situation_en{
         color: c.$txt;
@@ -252,6 +260,8 @@
         margin: 0 auto{
             top: spCalc(100)
         };
+        line-height: 1;
+        padding-bottom: 10px;
         span{
             display: block;   
             &:first-of-type{
@@ -336,7 +346,7 @@
 }
 
 .item-point{
-    width: 168px;
+    width: 118px;
     background: c.$txt;
     border-radius: 10px;
     padding: 10px 0;
@@ -373,4 +383,219 @@
             font-size: min(pcFont(12),12px);
         }
     }
+}
+
+.map-point-people{
+    line-height: 0;
+    position: absolute;
+    top: 0;
+
+}
+
+.modal_1{
+    .map-point-people{
+        width: calc(116.81 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(120 / 400) * 100%;
+            right: calc(76 / 400) * 100%;
+        };
+        img{
+            animation: aruku 5s ease infinite;
+            transform-origin: bottom center;
+        }
+    }
+}
+
+.modal_2{
+    .map-point-people1{
+        width: calc(120.05 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(106 / 400) * 100%;
+            right: calc(148 / 400) * 100%;
+        };
+        img{
+                animation: pyon 5s linear infinite;
+        }
+    }
+    .map-point-people2{
+        width: calc(87.53 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(160 / 400) * 100%;
+            right: calc(70 / 400) * 100%;
+        };
+        img{
+            animation: pyon 5s 2.5s linear infinite;
+        }
+    }
+}
+
+.modal_3{
+    .map-point-people{
+        width: calc(126.54 / 400) * 100%;
+        left: 0;
+        margin: 0{
+            top: calc(100 / 400) * 100%;
+            left: calc(70 / 400) * 100%;
+        };
+        img{
+            animation: pyon 3s linear infinite;
+        }
+    }
+}
+
+
+.modal_4{
+    .map-point-people1{
+        width: calc(117.04 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(80 / 400) * 100%;
+            right: calc(170 / 400) * 100%;
+        };
+        img{
+                animation: aruku 5s linear infinite;
+        }
+    }
+    .map-point-people2{
+        width: calc(119.53 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(120 / 400) * 100%;
+            right: calc(62 / 400) * 100%;
+        };
+        img{
+            animation: aruku 5s 2.5s linear infinite;
+        }
+    }
+}
+
+.modal_5{
+    .map-point-people1{
+        width: calc(112.68 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(98 / 400) * 100%;
+            right: calc(116 / 400) * 100%;
+        };
+        img{
+                animation: aruku 5s linear infinite;
+        }
+    }
+    .map-point-people2{
+        width: calc(81.23 / 400) * 100%;
+        left: 0;
+        margin: 0{
+            top: calc(165 / 400) * 100%;
+            left: calc(101 / 400) * 100%;
+        };
+        animation: pyon 5s ease infinite;
+        img{
+            animation: aruku 5s 2.5s linear infinite;
+        }
+    }
+}
+
+.modal_6{
+    .map-point-people1{
+        width: calc(126.91 / 400) * 100%;
+        left: 0;
+        margin: 0{
+            top: calc(109.8 / 400) * 100%;
+            left: calc(92 / 400) * 100%;
+        };
+        animation: aruku 9s linear infinite;
+        img{
+            animation: hashiru 9s linear infinite;
+        }
+    }
+    .map-point-people2{
+        width: calc(132.31 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(134 / 400) * 100%;
+            right: calc(78 / 400) * 100%;
+        };
+        animation: aruku 9.1s linear infinite;
+        img{
+            animation: hashiru 9.05s linear infinite;
+        }
+    }
+}
+
+.modal_7{
+    .map-point-people1{
+        width: calc(128.98 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(80.4 / 400) * 100%;
+            right: calc(138.7 / 400) * 100%;
+        };
+        animation: aruku 4s linear infinite;
+        
+    }
+    .map-point-people2{
+        width: calc(104.64 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(155.92 / 400) * 100%;
+            right: calc(38.95 / 400) * 100%;
+        };
+        animation: aruku 4s 1s linear infinite;
+    }
+}
+
+.modal_8{
+    .map-point-people{
+        width: calc(143.58 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(22.78 / 400) * 100%;
+            right: calc(124 / 400) * 100%;
+        };
+        animation: pyon2 2s cubic-bezier(0.55, 0, 1, 0.45) infinite;
+        
+    }    
+}
+
+
+.modal_9{
+    .map-point-people1{
+        width: calc(88.66 / 400) * 100%;
+        right: 0;
+        margin: 0{
+            top: calc(66.4 / 400) * 100%;
+            right: calc(106.4 / 400) * 100%;
+        };
+        animation: aruku 4s linear infinite;
+        
+    }
+    .map-point-people2{
+        width: calc(98.52 / 400) * 100%;
+        left: 0;
+        margin: 0{
+            top: calc(184.67 / 400) * 100%;
+            left: calc(98.89 / 400) * 100%;
+        };
+        animation: aruku 4s 1s linear infinite;
+    }
+}
+
+
+.modal_10{
+    .map-point-people{
+        width: calc(128.07 / 400) * 100%;
+        left: 0;
+        margin: 0{
+            top: calc(50.58 / 400) * 100%;
+            left: calc(84.86 / 400) * 100%;
+        };
+        img{
+            transform-origin: top center;
+            animation: aruku 3s linear infinite;
+        }
+        
+    }    
 }

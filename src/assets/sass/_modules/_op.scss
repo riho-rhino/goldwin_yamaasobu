@@ -1,3 +1,227 @@
 @use '../_reset';
 @use '../_mixin' as *;
 @use '../_common' as c;
+
+.opening-wrapper{
+    background-size: 400px;
+  background-repeat: repeat;
+  background-image: url(../img/bg.png);
+}
+
+
+.opening{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    background-image: url(../img/bg_sp.gif);
+    background-size: 100%;
+    background-repeat: repeat-y;
+    z-index: 500;
+    width: 100%;
+    height: 100svh;
+    text-align: center;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    @include pc{
+        background-image: url(../img/bg_pc.gif);
+
+    }
+}
+.op-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.red{
+    color: c.$txt;
+}
+
+.op-ja{
+    font-size: spFont(32);
+    line-height: calc(48 / 32);
+    padding-top: spCalc(451);
+    overflow: hidden;
+    .upin{
+        display: inline-block;
+        transform: translateY(100px);
+        transition: transform .5s ease;
+        // &.upin2{
+        //     transition-delay: 1.3s;
+        // }
+    }
+    .red{
+        opacity: 0;
+        @for $i from 0 through 7 {
+            &:nth-child(#{$i + 1}) {
+                animation-delay: #{$i * 0.1 + 0.5}s;
+            }
+        }
+    }
+    @include pc{
+        font-size: pcFont(14);
+        padding-top: pcCalc(346);
+        line-height: 1;
+    }
+
+    &.show{
+        .upin{
+        transform: translateY(0px);
+        }
+        .red{
+            animation-name: opening;
+            animation-duration: 0.5s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+.op-en{
+    font-size: spFont(22);
+    line-height: calc(33 / 22);
+    padding-top: spCalc(40);
+    overflow: hidden;
+    .upin{
+        display: inline-block;
+        transform: translateY(100px);
+        transition: transform .5s ease;
+        // &.upin2{
+        //     transition-delay: 1.3s;
+        // }
+    }
+    .red{
+        opacity: 0;
+        @for $i from 0 through 24 {
+            &:nth-child(#{$i + 1}) {
+                animation-delay: #{$i * 0.04 + 0.53}s;
+            }
+        }
+    }
+    @include pc{
+        font-size: pcFont(14);
+        padding-top: pcCalc(15);
+        line-height: 1.4;
+    }
+
+    &.show{
+        .upin{
+        transform: translateY(0px);
+        }
+        .red{
+            animation-name: opening;
+            animation-duration: 0.03s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+
+.op-map-wrap{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%,300%);
+    transition: transform 1.5s cubic-bezier(0.83, 0, 0.17, 1);
+    line-height: 0;
+    &.show{
+        transform: translate(-50%,0);
+        .op-people,.op-people2{
+            opacity: 1;
+        }
+        .op-cloud,.op-sun{
+            transform: translateY(0);
+        }
+        .op-rain{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    @include pc{
+        width: pcCalc(700);
+    }
+    div{
+        line-height: 0;
+        position: absolute;
+    }
+    .op-map{
+        position: relative;
+        z-index: 10;
+    }
+    
+}
+
+.op-sun{
+    top: 0;
+    left: 0;
+    width: spCalc(61.41);
+    margin-left: spCalc(296.65);
+    z-index: 5;
+    transform: translateY(200%);
+    transition: transform .7s 2.5s linear;
+    img{
+            animation: rotate-forever 10s linear infinite;
+    }
+
+}
+
+.op-rain{
+    top: 0;
+    left: 0;
+    width: spCalc(163.06);
+    margin-top: spCalc(140.59);
+    margin-left: spCalc(37.23);
+    z-index: 5;
+    transform: translateX(130%);
+    opacity: 0;
+    transition: transform .7s 2s linear, opacity .1s 2s ease;
+}
+
+.op-cloud{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(300%);
+    transition: transform .7s 1.3s linear;
+    z-index: 20;
+}
+
+.op-people{
+    top: 0;
+    right: 0;
+    width: spCalc(99.53);
+    margin-top: spCalc(89.76);
+    margin-right: spCalc(295.59);
+    opacity: 0;
+    z-index: 15;
+    transition: opacity .5s 1.5s linear;
+    img{
+        animation: aruku 2.5s linear infinite;
+    }
+}
+
+.op-people2{
+    bottom: 0;
+    right: 0;
+    width: spCalc(68.82);
+    margin-right: spCalc(148.41);
+    opacity: 0;
+    z-index: 20;
+    transition: opacity .5s 1.5s linear;
+    img{
+        animation: aruku 2.3s linear infinite;
+    }
+}
+
+
+
+@keyframes opening {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

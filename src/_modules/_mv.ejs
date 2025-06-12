@@ -1,16 +1,16 @@
 <div class="yamaasobu_mv">
     <div class="mv_word-wrap">
         <p class="subttl subttl_above">
-            登る、知る、遊ぶ｡       
+            <span>登る、</span><span>知る、</span><span>遊ぶ｡</span>
         </p>
         <p class="subttl subttl_bottom">
-            頼りになる山仲間｡ 
+            <span>頼りになる山仲間｡ </span>
         </p>
-        <div class="ttl sic">
+        <!-- <div class="ttl sic">
             <img class="ttl_img" src="<%= rootURL %>/assets/img/mv_ttl.png" alt="">
             <div class="svg_ttl">
-                <!--?xml version="1.0" encoding="UTF-8"?-->
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 313.34 100.5" width="313.3399963378906" height="100.5">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 313.34 100.5">
                     <defs>
                     <style>
                         .cls-1 {
@@ -33,15 +33,19 @@
                     </g>
                 </svg>
             </div>
+        </div> -->
+        <div class="ttl sic">
+            <span>山</span>
+            <span>遊</span>
+            <span>部</span>
         </div>
-
         <div class="three_bu-wrap">
             <div class="side">{</div>
             <div class="rotating-text sic">
                 <p>
                     <span class="word show">やまあそぶ</span>
                     <span class="word">yamaasobu</span>
-                    <span class="word">ﾔﾏｱｿﾌﾞ</span>
+                    <span class="word">ヤマアソブ</span>
                 </p>
             </div>
             <div class="side">}</div>
@@ -50,61 +54,69 @@
     <div class="mv-swiper swiper">
         <div class="swiper-wrapper mv-swiper-wrapper">
             <div class="swiper-slide item">
-                <div class="item_ph item_ph1">
-                    <img src="<%= rootURL %>/assets/img/mv_1.png" alt="">
-                </div>
-                <div class="mv-swiper-text-wrap">
-                    <p class="mv_swiper-ttl">
-                        map
-                    </p>
-                    <p class="mv_swiper-text">
-                        多様な地形で楽しむアクティビティ。<br>
-                        シチュエーションに適した<br>
-                        アイテムを紹介します。
-                    </p>
-                </div>
+                <a href="#map">
+                    <div class="item_ph">
+                        <img src="<%= rootURL %>/assets/img/mv_map.png" alt="">
+                    </div>
+                    <div class="mv-swiper-text-wrap">
+                        <p class="mv_swiper-ttl zen_m">
+                            map
+                        </p>
+                        <p class="mv_swiper-text zen_b">
+                            多様な地形で楽しむアクティビティ。<br>
+                            シチュエーションに適した<br>
+                            アイテムを紹介します。
+                        </p>
+                    </div>
+                </a>
             </div>
             <div class="swiper-slide item">
-                <div class="item_ph item_ph2">
-                    <img src="<%= rootURL %>/assets/img/dammy_1.jpg" alt="">
-                </div>
-                <div class="mv-swiper-text-wrap">
-                    <p class="mv_swiper-ttl">
-                        how
-                    </p>
-                    <p class="mv_swiper-text">
-                        多様な地形で楽しむアクティビティ｡<br>
-                        シチュエーション別にアイテムを紹介｡
-                    </p>
-                </div>
+                <a href="#how">
+                    <div class="item_ph">
+                        <img src="<%= rootURL %>/assets/img/mv_how.gif" alt="">
+                    </div>
+                    <div class="mv-swiper-text-wrap">
+                        <p class="mv_swiper-ttl zen_m">
+                            how
+                        </p>
+                        <p class="mv_swiper-text zen_b">
+                            多様な地形で楽しむアクティビティ｡<br>
+                            シチュエーション別にアイテムを紹介｡
+                        </p>
+                    </div>
+                </a>
             </div>
             <div class="swiper-slide item">
-                <div class="item_ph item_ph1">
-                    <img src="<%= rootURL %>/assets/img/mv_1.png" alt="">
-                </div>
-                <div class="mv-swiper-text-wrap">
-                    <p class="mv_swiper-ttl">
-                        do
-                    </p>
-                    <p class="mv_swiper-text">
-                        多様な地形で楽しむアクティビティ｡<br>
-                        シチュエーション別にアイテムを紹介｡
-                    </p>
-                </div>
+                <a href="#do">
+                    <div class="item_ph item_ph1">
+                        <img src="<%= rootURL %>/assets/img/mv_do.gif" alt="">
+                    </div>
+                    <div class="mv-swiper-text-wrap">
+                        <p class="mv_swiper-ttl zen_m">
+                            do
+                        </p>
+                        <p class="mv_swiper-text zen_b">
+                            多様な地形で楽しむアクティビティ｡<br>
+                            シチュエーション別にアイテムを紹介｡
+                        </p>
+                    </div>
+                </a>
             </div>
             <div class="swiper-slide item">
-                <div class="item_ph item_ph2">
-                    <img src="<%= rootURL %>/assets/img/dammy_1.jpg" alt="">
-                </div>
-                <div class="mv-swiper-text-wrap">
-                    <p class="mv_swiper-ttl">
-                        field map
-                    </p>
-                    <p class="mv_swiper-text">
-                        多様な地形で楽しむアクティビティ｡<br>
-                        シチュエーション別にアイテムを紹介｡
-                    </p>
-                </div>
+                <a href="#field">
+                    <div class="item_ph">
+                        <img src="<%= rootURL %>/assets/img/mv_how.gif" alt="">
+                    </div>
+                    <div class="mv-swiper-text-wrap">
+                        <p class="mv_swiper-ttl zen_m">
+                            field map
+                        </p>
+                        <p class="mv_swiper-text zen_b">
+                            多様な地形で楽しむアクティビティ｡<br>
+                            シチュエーション別にアイテムを紹介｡
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="swiper-pagination input"></div>
@@ -118,19 +130,11 @@
 <div class="mv_line yamaasobu-section" id="mvline">
     <div class="line-wrap">
         <p class="line-txt line-ja">&emsp;初めての人も知識のある人も<span>｢</span><span class="bound">山</span><span class="bound">で</span><span class="bound">遊</span><span class="bound">ぶ</span><span>｣</span>がもっと楽しくなる｡</p>
-        <p class="line-txt line-en">Whether you're a beginner or an experienced hiker, <br><span>"</span><span class="bound">p</span><span class="bound">l</span><span class="bound">a</span><span class="bound">y</span><span class="bound">i</span><span class="bound">n</span>
-            <span class="bound"> </span><span class="bound">i</span><span class="bound">n</span>
-            <span class="bound"> </span><span class="bound">t</span><span class="bound">h</span><span class="bound">e</span>
-            <span class="bound"> </span><span class="bound">m</span><span class="bound">o</span><span class="bound">u</span><span class="bound">n</span><span class="bound">t</span>
-            <span class="bound">a</span><span class="bound">i</span><span class="bound">n</span><span class="bound">s</span><span>" </span>will be more fun.</p>
+        <p class="line-txt line-en">Whether you're a beginner or an experienced hiker, <br><span>"</span><span class="bound">playing</span> <span class="bound">in</span> <span class="bound">the</span> <span class="bound">mountains</span><span>"</span> </span>will be more fun.</p>
     </div>
     <div class="line-wrap">
         <p class="line-txt line-ja">&emsp;初めての人も知識のある人も<span>｢</span><span class="bound">山</span><span class="bound">で</span><span class="bound">遊</span><span class="bound">ぶ</span><span>｣</span>がもっと楽しくなる｡</p>
-        <p class="line-txt line-en">Whether you're a beginner or an experienced hiker, <br><span>"</span><span class="bound">p</span><span class="bound">l</span><span class="bound">a</span><span class="bound">y</span><span class="bound">i</span><span class="bound">n</span>
-            <span class="bound"> </span><span class="bound">i</span><span class="bound">n</span>
-            <span class="bound"> </span><span class="bound">t</span><span class="bound">h</span><span class="bound">e</span>
-            <span class="bound"> </span><span class="bound">m</span><span class="bound">o</span><span class="bound">u</span><span class="bound">n</span><span class="bound">t</span>
-            <span class="bound">a</span><span class="bound">i</span><span class="bound">n</span><span class="bound">s</span><span>" </span>will be more fun.</p>
+        <p class="line-txt line-en">Whether you're a beginner or an experienced hiker, <br><span>"</span><span class="bound">playing</span> <span class="bound">in</span> <span class="bound">the</span> <span class="bound">mountains</span><span>"</span> </span>will be more fun.</p>
     </div>
 </div>
 

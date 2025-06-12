@@ -4,7 +4,7 @@
 
 
 
-.field{
+.yamaasobu-field {
     overflow: hidden;
     color: #fff;
     background-repeat: repeat;
@@ -13,8 +13,29 @@
     background-repeat: no-repeat;
     margin-top: spCalc(100);
     background-size: 100%;
+
+    &.move {
+        .fieldttl {
+            &::after {
+                opacity: 1;
+            }
+            span {
+                animation: text-kata .5 .5s forwards;
+            }
+        }
+
+        .field-subttl {
+            opacity: 1;
+            transform: rotate(-5deg);
+        }
+
+        .field-txt {
+            opacity: 1;
+        }
+    }
     
-    .fieldttl{
+
+    .fieldttl {
         padding-top: spCalc(200);
         font-size: spFont(80);
         text-align: center;
@@ -22,6 +43,19 @@
         margin: 0 auto;
         width: fit-content;
         position: relative;
+
+        span {
+            display: inline-block;
+            opacity: 0;
+            transform: rotate(-8deg) translate(-3px, 0);
+
+            @for $i from 0 through 11 {
+                &:nth-child(#{$i + 1}) {
+                    animation-delay: #{$i * 0.1 + 0.3}s;
+                }
+            }
+        }
+
         &::after {
             animation-duration: 1.5s;
             animation-iteration-count: infinite;
@@ -30,118 +64,162 @@
             left: 0;
             position: absolute;
             bottom: 0;
+            opacity: 0;
+            transition: opacity .5s 1.5s ease;
         }
     }
 
-    .field-subttl{
+    .field-subttl {
+        font-weight: 600;
         margin-top: spCalc(50);
         text-align: center;
         font-size: spFont(28);
+        opacity: 0;
+        transform: rotate(0);
+        transition: transform 0.4s 1.2s cubic-bezier(0.68, -0.6, 0.32, 1.6), opacity .2s 1s ease;
+
     }
-    .field-txt{
+
+    .field-txt {
         width: spCalc(630);
         white-space: nowrap;
-        margin: 0 auto{
+        opacity: 0;
+        transition: opacity .5s 1.4s ease;
+
+        margin: 0 auto {
             top: spCalc(45)
-        };
+        }
+
+        ;
         text-align: center;
         font-size: spFont(30);
         font-weight: bold;
     }
-    @include pc{
+
+    @include pc {
         margin-top: pcCalc(100);
         background-image: url(../img/pc_field-bg.png);
-        .fieldttl{
+
+        .fieldttl {
             padding-top: pcCalc(150);
-            font-size: min(pcFont(60),60px);
+            font-size: min(pcFont(60), 60px);
             text-align: left;
-            
-            margin: 0{
+
+            margin: 0 {
                 left: pcCalc(100);
-            };
+            }
+
+            ;
         }
-    
-        .field-subttl{
+
+        .field-subttl {
             position: absolute;
             top: 0;
             left: 0;
             margin-top: pcCalc(164);
             margin-left: pcCalc(472);
-            font-size: min(pcFont(18),18px);
+            font-size: min(pcFont(20), 20px);
+            font-weight: 600;
         }
-        .field-txt{
-            font-size: min(pcFont(20),20px);
+
+        .field-txt {
+            font-size: min(pcFont(20), 20px);
             width: pcCalc(700);
             text-align: left;
             padding-left: pcCalc(100);
-            margin: 0 auto{
+            
+
+            margin: 0 auto {
                 top: pcCalc(45);
                 left: 0;
-            };
+            }
+
+            ;
         }
     }
 }
 
-.field-swiper{
+.field-swiper {
     margin: 0 {
-        top: spCalc(80)!important;
+        top: spCalc(80) !important;
+        left: 15px !important;
     };
-    padding: 0{
-        top: spCalc(20)!important;
-        left: 25px!important;
-        bottom: spCalc(150)!important;
+
+    padding: 0 {
+        top: spCalc(20) !important;
+        bottom: spCalc(150) !important;
+        left: 15px !important;
+        
     };
-    @include pc{
-        margin: 0 {
-            top: pcCalc(-46)!important;
-        };
-        padding: 0{
-            top: pcCalc(96)!important;
-            left: 0!important;
-            bottom: pcCalc(150)!important;
-        };
+    .field-side{
+        position: absolute;
+        width: 25px;
+        top: 0;
+        left: 0;
     }
-    
-    .field-photo{
+
+    @include pc {
+        margin: 0 {
+            top: pcCalc(-46) !important;
+            left: 100px!important;
+        }
+
+        ;
+
+        padding: 0 {
+            top: pcCalc(96) !important;
+            left: 0 !important;
+            bottom: pcCalc(150) !important;
+        }
+
+        ;
+    }
+
+    .field-photo {
         line-height: 0;
     }
 
-    .field-swiper-wrap{
-        .swiper-ttl{
+    .field-swiper-wrap {
+        .swiper-ttl {
             font-size: spFont(40);
             font-weight: 600;
             line-height: 1;
             margin-top: spCalc(60);
         }
-        .swiper-text{
+
+        .swiper-text {
             font-size: spFont(28);
             margin-top: spCalc(60);
         }
-        @include pc{
-            .swiper-ttl{
+
+        @include pc {
+            .swiper-ttl {
                 font-size: pcFont(18);
                 margin-top: 30px;
             }
-            .swiper-text{
+
+            .swiper-text {
                 font-size: pcFont(14);
                 margin-top: 30px;
-            } 
+            }
         }
     }
 
     .swiper-button-prev,
-    .swiper-button-next{
+    .swiper-button-next {
         top: 35% !important;
-        width: 27.5px!important;
-        height: 47.5px!important;
-        @include pc{
-            width: pcCalc(52)!important;
+        width: 27.5px !important;
+        height: 47.5px !important;
+
+        @include pc {
+            width: pcCalc(52) !important;
             max-width: 52px;
-            height: 32px!important;
-            top: 0!important;
-            margin-top: 0!important;
+            height: 32px !important;
+            top: 0 !important;
+            margin-top: 0 !important;
         }
     }
+
     .swiper-button-prev::after,
     .swiper-button-next::after {
         background-repeat: no-repeat;
@@ -150,76 +228,83 @@
         width: 100%;
         height: 100%;
         margin: auto;
-        display: block!important;
-        opacity: 1!important;
+        display: block !important;
+        opacity: 1 !important;
     }
-    .swiper-button-prev{
-        left: 13px!important;
-        @include pc{
-            left: unset!important;
-            right: 0!important;
-            margin-left: unset!important;   
-            margin-right: pcCalc(248);   
+
+    .swiper-button-prev {
+        left: 0 !important;
+
+        @include pc {
+            left: unset !important;
+            right: 0 !important;
+            margin-left: unset !important;
+            margin-right: pcCalc(248);
         }
+
         &::after {
             background-image: url(../img/f-prev.png);
-            @include pc{
+
+            @include pc {
                 background-image: url(../img/pc-field-prev.png);
                 transition: all .3s ease;
             }
         }
-        &:hover{
+
+        &:hover {
             &::after {
-                @include pc{
+                @include pc {
                     background-image: url(../img/pc-field-prev_hover.png);
                 }
             }
         }
-        
+
     }
-    
+
     .swiper-button-next {
-        right: 13px!important;
-        @include pc{
-            right: 0!important;
-            margin-right: pcCalc(100);   
+        right: 13px !important;
+
+        @include pc {
+            right: 0 !important;
+            margin-right: pcCalc(100);
         }
+
         &::after {
             background-image: url(../img/f-next.png);
-            @include pc{
+
+            @include pc {
                 background-image: url(../img/pc-field-next.png);
                 transition: all .3s ease;
             }
-        }    
-        &:hover{
+        }
+
+        &:hover {
             &::after {
-                @include pc{
+                @include pc {
                     background-image: url(../img/pc-field-next_hover.png);
                 }
             }
-        }   
+        }
     }
-    .swiper-pagination{
-        font-size: spFont(50)!important;
-        top: 0!important;
-        left: 0!important;
-        right: unset!important;
-        bottom: unset!important;
-        line-height: 1!important;
-        width: fit-content!important;
-        margin-left: spCalc(80)!important;
-        @include pc{
-            left: unset!important;
-            right: 0!important;
-            font-size: pcFont(18)!important;
-            margin-left: unset!important;
-            margin-right: pcCalc(172)!important;
-            margin-top: pcCalc(3)!important;
+
+    .swiper-pagination {
+        font-size: spFont(50) !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: unset !important;
+        bottom: unset !important;
+        line-height: 1 !important;
+        width: fit-content !important;
+        margin-left: spCalc(80) !important;
+
+        @include pc {
+            left: unset !important;
+            right: 0 !important;
+            font-size: pcFont(18) !important;
+            margin-left: unset !important;
+            margin-right: pcCalc(172) !important;
+            margin-top: pcCalc(3) !important;
         }
     }
 }
 
-
-.field-bg2{
-    line-height: 0;
-}

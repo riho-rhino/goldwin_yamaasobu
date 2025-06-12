@@ -1,36 +1,38 @@
 
 <!-- contents Start -->
 <article>
-    <div id="contents" class="yamaasobu">
-        <%- include('./_op.ejs') %>
-        <%- include('./_mv.ejs') %>
-        <%- include('./_map.ejs') %>
-        <%- include('./_how.ejs') %>
-        <%- include('./_do.ejs') %>
-        <%- include('./_field.ejs') %>
-        <%- include('./_weather.ejs') %>
-        <%- include('./_foot.ejs') %>
-        <%- include('./_anchor.ejs') %>
-    </div>
-    <div class="yamaasobu_modal">
-        <div class="yamaasobu_modal_bg">
-            <div class="modal_close">
-                <p>CLOSE</p>
-                <span class="close-btn">
-                    <img src="<%= rootURL %>/assets/img/close.png" alt="">
-                </span>
-            </div>
-            <div class="yamaasobu_modal_list">
-                <%- include('./_modal1.ejs') %>
-                <%- include('./_modal2.ejs') %>
-                <%- include('./_modal3.ejs') %>
-                <%- include('./_modal4.ejs') %>
-                <%- include('./_modal5.ejs') %>
-                <%- include('./_modal6.ejs') %>
-                <%- include('./_modal7.ejs') %>
-                <%- include('./_modal8.ejs') %>
-                <%- include('./_modal9.ejs') %>
-                <%- include('./_modal10.ejs') %>
+    <div class="yamaasobu-wrapper">
+        <div id="contents" class="yamaasobu">
+            <%- include('./_opening.ejs') %>
+            <%- include('./_mv.ejs') %>
+            <%- include('./_map.ejs') %>
+            <%- include('./_how.ejs') %>
+            <%- include('./_do.ejs') %>
+            <%- include('./_field.ejs') %>
+            <%- include('./_weather.ejs') %>
+            <%- include('./_foot.ejs') %>
+            <%- include('./_anchor.ejs') %>
+        </div>
+        <div class="yamaasobu_modal">
+            <div class="yamaasobu_modal_bg">
+                <div class="modal_close">
+                    <p>CLOSE</p>
+                    <span class="close-btn">
+                        <img src="<%= rootURL %>/assets/img/close.png" alt="">
+                    </span>
+                </div>
+                <div class="yamaasobu_modal_list">
+                    <%- include('./_modal1.ejs') %>
+                    <%- include('./_modal2.ejs') %>
+                    <%- include('./_modal3.ejs') %>
+                    <%- include('./_modal4.ejs') %>
+                    <%- include('./_modal5.ejs') %>
+                    <%- include('./_modal6.ejs') %>
+                    <%- include('./_modal7.ejs') %>
+                    <%- include('./_modal8.ejs') %>
+                    <%- include('./_modal9.ejs') %>
+                    <%- include('./_modal10.ejs') %>
+                </div>
             </div>
         </div>
     </div>

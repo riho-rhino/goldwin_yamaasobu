@@ -202,8 +202,6 @@
         position: absolute;
         top: 0;
         left: 50%;
-        transform: translateX(-50%) scale(0,0);
-        transform-origin: bottom right;
         background: #DD2F0E;
         border-radius: 50px;
         width: 150px;
@@ -214,6 +212,8 @@
         font-size: spFont(24);
         white-space: nowrap;
         margin-top: -18px;
+        transform-origin: bottom right;
+        transform: translateX(-50%) scale(0,0);
         opacity: 0;
         transition: transform 0.6s 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),opacity .2s 0.8s ease;
         &::after {

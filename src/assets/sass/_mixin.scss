@@ -21,6 +21,9 @@
 @function map($value){
   @return calc($value / 850) * 100%;
 }
+@function spm($value){
+  @return calc($value / 1200) * 100%;
+}
 
 // fontsize
 
