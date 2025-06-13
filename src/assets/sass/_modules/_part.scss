@@ -74,6 +74,9 @@
         width: calc(375 / 900) * 100%;
         margin: calc(50 / 900) * 100% calc(50 / 900) * 100% calc(50 / 900) * 100% 0;
     }
+    img{
+        border-radius: 5px;
+    }
 }
 
 .how-swiper-wrap,.do-swiper-wrap{

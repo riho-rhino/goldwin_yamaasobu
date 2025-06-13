@@ -371,8 +371,6 @@ gsap.fromTo(
   }
 );
 
-
-
 // アンカーリンク
 $(window).on('load', function () {
   $('.footer-anchor-list a[href*="#"]').on('click', function () {

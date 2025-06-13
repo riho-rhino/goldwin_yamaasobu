@@ -2747,6 +2747,9 @@ body.noscroll {
     margin: 5.5555555556% 5.5555555556% 5.5555555556% 0;
   }
 }
+.howdo-photo img {
+  border-radius: 5px;
+}
 
 .how-swiper-wrap, .do-swiper-wrap {
   position: relative;
@@ -3336,24 +3339,31 @@ body.noscroll {
   justify-content: space-between;
   font-size: 5.3333333333vw;
 }
+.footer .footer-anchor-list li {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
 .footer .footer-anchor-list a {
   white-space: nowrap;
   color: #fff;
   line-height: 1;
   display: block;
 }
-.footer .footer-anchor-list .anchor_how {
+.footer .footer-anchor-list .anchor_how a {
   transform: rotate(0deg);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s 1.5s ease;
 }
-.footer .footer-anchor-list .anchor_field {
+.footer .footer-anchor-list .anchor_field a {
   transform: rotate(0deg);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s 1.5s ease;
 }
-.footer.move .anchor_how {
+.footer.move .footer-anchor-list li {
+  opacity: 1;
+}
+.footer.move .anchor_how a {
   transform: rotate(5deg);
 }
-.footer.move .anchor_field {
+.footer.move .anchor_field a {
   transform: rotate(-5deg);
 }
 .footer.move .footer-ill .footer-map {
@@ -3444,10 +3454,10 @@ body.noscroll {
 .footer_p {
   position: absolute;
   width: 17.6%;
-  top: 0;
+  bottom: 0;
   right: 0;
   margin-right: 35.3333333333%;
-  margin-top: 1.3333333333%;
+  margin-bottom: 9.3333333333%;
   animation: aruku 3s ease infinite;
   line-height: 0;
   opacity: 0;
@@ -3458,7 +3468,7 @@ body.noscroll {
     width: 18.540433925%;
     max-width: 94px;
     margin-right: 36.4891518738%;
-    margin-top: 36.4891518738%;
+    margin-bottom: 9.8619329389%;
   }
 }
 

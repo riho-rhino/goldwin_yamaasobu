@@ -73,6 +73,10 @@
         margin: 0 auto;
         justify-content: space-between;
         font-size: spFont(40);
+        li{
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
         a{
             white-space: nowrap;
             color: #fff;
@@ -80,20 +84,33 @@
             display: block;
         }
         .anchor_how{
-            transform: rotate(0deg);
-            transition: transform .5s ease;
+            a{
+                transform: rotate(0deg);
+                transition: transform .5s 1.5s ease;
+            }
         }
         .anchor_field{
-            transform: rotate(0deg);
-            transition: transform .5s ease;
+            a{
+                transform: rotate(0deg);
+                transition: transform .5s 1.5s ease;
+            }
         }
     }
     &.move{
+        .footer-anchor-list{
+            li{
+                opacity: 1;
+            }
+        }
         .anchor_how{
-            transform: rotate(5deg);
+            a{
+                transform: rotate(5deg);
+            }
         }
         .anchor_field{
-            transform: rotate(-5deg);
+            a{
+                transform: rotate(-5deg);
+            }
         }
         .footer-ill{
             .footer-map{
@@ -198,10 +215,10 @@
 .footer_p{
     position: absolute;
     width: spCalc(132);
-    top: 0;
+    bottom: 0;
     right: 0;
     margin-right: spCalc(265);
-    margin-top: spCalc(10);
+    margin-bottom: spCalc(70);
     animation: aruku 3s ease infinite;
     line-height: 0;
     opacity: 0;
@@ -210,7 +227,7 @@
         width: calc(94 / 507) * 100%;
         max-width: 94px;
         margin-right: calc(185 / 507) * 100%;
-        margin-top: calc(185 / 507) * 100%;
+        margin-bottom: calc(50 / 507) * 100%;
 
     }
 }
