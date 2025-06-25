@@ -4,7 +4,7 @@
 
 .how-text,.do-text{
     @include pc{
-        margin-bottom: pcCalc(50);
+        margin-bottom: 8%;
     }
 
 }
@@ -34,15 +34,20 @@
             transform: translateY(-3%) rotate(-1deg);
             }
         }
+        a{
+            color: #000;
+        }
 
     }
     @include pc{
         padding-top: pcCalc(80)!important;
         .swiper-slide{
-            display: flex;
-            vertical-align: middle;
-            align-items: center;
-            justify-content: space-between;
+            a{
+                display: flex;
+                vertical-align: middle;
+                align-items: center;
+                justify-content: space-between;
+            }
             &.swiper-slide-active{
             transform: translateY(-5%);
         }
@@ -75,7 +80,7 @@
         margin: calc(50 / 900) * 100% calc(50 / 900) * 100% calc(50 / 900) * 100% 0;
     }
     img{
-        border-radius: 5px;
+        border-radius: 6px;
     }
 }
 

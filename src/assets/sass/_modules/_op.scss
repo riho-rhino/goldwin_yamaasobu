@@ -160,7 +160,7 @@
     margin-left: spCalc(296.65);
     z-index: 5;
     transform: translateY(200%);
-    transition: transform .7s 2.5s linear;
+    transition: transform .7s 1.8s linear;
     img{
             animation: rotate-forever 10s linear infinite;
     }
@@ -176,7 +176,7 @@
     z-index: 5;
     transform: translateX(130%);
     opacity: 0;
-    transition: transform .7s 2s linear, opacity .1s 2s ease;
+    transition: transform .7s 1.8s linear, opacity .1s 1.8s ease;
 }
 
 .op-cloud{
@@ -184,8 +184,12 @@
     left: 0;
     width: 100%;
     transform: translateY(300%);
-    transition: transform .7s 1.3s linear;
+    transition: transform 1s 1.3s linear;
     z-index: 20;
+    display: none;
+    @include pc{
+        display: block;
+    }
 }
 
 .op-people{
@@ -196,7 +200,7 @@
     margin-right: spCalc(295.59);
     opacity: 0;
     z-index: 15;
-    transition: opacity .5s 1.5s linear;
+    transition: opacity .7s 1.5s linear;
     img{
         animation: aruku 2.5s linear infinite;
     }
@@ -209,7 +213,7 @@
     margin-right: spCalc(148.41);
     opacity: 0;
     z-index: 20;
-    transition: opacity .5s 1.5s linear;
+    transition: opacity .7s 1.5s linear;
     img{
         animation: aruku 2.3s linear infinite;
     }
@@ -223,5 +227,43 @@
     }
     100%{
         opacity: 1;
+    }
+}
+
+.sp-op-cloud1,.sp-op-cloud2{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: block;
+    @include pc{
+        display: none;
+    }
+}
+
+.opening{
+    &.show{
+        .sp-op-cloud1,.sp-op-cloud2{
+            transform: translateX(0);
+        }
+    }
+}
+
+.sp-op-cloud1{
+    left: 0;
+    margin-top: 5%;
+    transform: translateX(-200%);
+    transition: transform 1.5s .5s linear;
+    img{
+        animation: furafura 8s linear infinite;
+    }
+}
+.sp-op-cloud2{
+    right: 0;
+    margin-top: 30%;
+    transform: translateX(200%);
+    transition: transform 1.5s linear;
+    img{
+        animation: furafura_2 8s linear infinite;
+
     }
 }

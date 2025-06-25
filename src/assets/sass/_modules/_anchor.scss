@@ -59,7 +59,7 @@
             }
             &:nth-of-type(4){
                 &::after{
-                    width: 80px;
+                    width: 95px;
                 }
             }
             a{
@@ -125,7 +125,7 @@
     .item-link_modal-inner{
         width: 100%;
         background: rgb(174, 181, 177, 0.6);
-        backdrop-filter: blur(2px);
+        backdrop-filter: blur(5px);
         transform-origin: bottom right;
         border-radius: 10px;
         transform: scale(0,0) translateY(10px);
@@ -134,6 +134,7 @@
     }
     &.show{
         margin-top:-120px;
+        
         .item-link_modal-inner{
             transform:scale(1,1) translateY(0);
             animation: unset;
@@ -174,7 +175,7 @@
             border-radius: 10px;
         }
         &.show{
-            margin-top:-120px;
+            margin-top:-150px;
         }
         
         .item-link_list{

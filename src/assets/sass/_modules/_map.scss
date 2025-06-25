@@ -252,12 +252,12 @@
     top: 0;
     right: 0;
     margin: 0 {
-        top: calc(476 / 1200) * 100%;
+        top: calc(495 / 1200) * 100%;
         right: calc(323 / 1200) * 100%;
     };     
     @include pc{
         margin: 0 {
-            top: calc(333 / 850.34) * 100%;
+            top: calc(375 / 850.34) * 100%;
             right: calc(236 / 850.34) * 100%;
         };  
     }
@@ -285,12 +285,12 @@
     right: 0;
     margin: 0 {
             bottom: spm(433.65);
-            right: spm(400);
+            right: spm(385);
         };  
     @include pc{
         margin: 0 {
-            bottom: calc(433.65 / 850.34) * 100%;
-            right: calc(400 / 850.34) * 100%;
+            bottom: calc(318 / 850.34) * 100%;
+            right: calc(280 / 850.34) * 100%;
         };  
     }
 }

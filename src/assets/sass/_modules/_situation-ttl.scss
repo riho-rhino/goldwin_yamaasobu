@@ -1,0 +1,302 @@
+@use '../_reset';
+@use '../_mixin' as *;
+@use '../_common' as c;
+
+
+    .situation-ttl,.situation-ttl-2{
+        position: absolute;
+        background: #DD2F0E;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 1;
+        padding: 8px 15px;
+        white-space: nowrap;
+        margin-top: -18px;
+        pointer-events: none;
+        z-index: 500;
+        transform: scale(0,0);
+        opacity: 0;
+        p{
+            color: #fff;
+            font-size: spFont(24);
+        }
+          @include pc{
+            &:hover{
+                transition: transform 0.6s 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),opacity .2s 0.8s ease;
+                transform: scale(1,1);
+                opacity: 1;
+            }
+            p{
+                font-size: min(pcFont(12),12px);
+            }
+          }
+    }
+    .situation-ttl{
+        transform-origin: bottom right;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 80%;
+            border-style: solid;
+            border-width: 7px 0 0 8px;
+            border-color: #dd2f0e transparent transparent;
+            translate: calc(-50% + 0.9px) 85%;
+            transform: skew(8deg);
+            transform-origin: top;
+          }
+    }
+    .situation-ttl-2{
+        transform-origin: bottom left;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            border-style: solid;
+            border-width: 8px 7px 0 0;
+            border-color: #dd2f0e transparent transparent;
+            translate: calc(-50% - 0.1px) 90%;
+            transform: skew(-8deg);
+            transform-origin: top;
+          }
+    }
+
+    .situation-ttl1{
+        bottom: 0;
+        left: 0;
+        margin-bottom: 44%;
+        margin-left: 14%;
+        animation: situation 80s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-bottom: 43%;
+            margin-left: 20.1%;
+        }
+        @include wpc{
+            margin-bottom: 43%;
+            margin-left: 22.5%;
+        }
+    }
+
+    .situation-ttl2{
+        bottom: 0;
+        right: 0;
+        margin-bottom: 65%;
+        margin-right: 11%;
+        animation: situation 80s 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+        margin-bottom: 60.5%;
+        margin-right: 10%;
+        }
+    }
+
+    .situation-ttl3{
+        bottom: 0;
+        right: 0;
+        margin-bottom: 71.5%;
+        margin-right: 43%;
+        animation: situation 80s 16s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-bottom: 68.5%;
+            margin-right: 41.5%;
+        }
+        @include wpc{
+            margin-bottom: 68.5%;
+            margin-right: 41.5%;
+        }
+    }
+
+    .situation-ttl4{
+        top: 0;
+        right: 0;
+        margin-top: 36.5%;
+        margin-right: 32%;
+        animation: situation 80s 24s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-top: 40%;
+            margin-right: 19.5%;
+        }
+        @include wpc{
+            margin-top: 41.5%;
+            margin-right: 21.3%;
+        }
+
+    }
+
+    .situation-ttl5{
+        bottom: 0;
+        right: 0;
+        margin-bottom: 37%;
+        margin-right: 54%;
+        animation: situation 80s 32s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-bottom: 34.5%;
+            margin-right: 53%;
+        }
+    }
+
+    .situation-ttl6{
+        bottom: 0;
+        right: 0;
+        margin-bottom: 46.3%;
+        margin-right: 14%;
+        animation: situation 80s 40s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-bottom: 44.5%;
+            margin-right: 21%;
+        }
+        @include wpc{
+            margin-bottom: 44%;
+            margin-right: 24%;
+        }
+    }
+
+    .situation-ttl7{
+        top: 0;
+        left: 0;
+        margin-top: 16%;
+        margin-left: 36.5%;
+        animation: situation 80s 48s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-top: 16.8%;
+            margin-left: 41%;
+        }
+        @include wpc{
+            margin-top: 17.5%;
+            margin-left: 42.5%;
+        }
+
+    }
+
+    .situation-ttl8{
+        top: 0;
+        left: 0;
+        margin-top: 31.5%;
+        margin-left: 1%;
+        animation: situation 80s 56s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-top: 33.5%;
+            margin-left: 8.5%;
+        }
+        @include wpc{
+            margin-top: 34.5%;
+            margin-left: 10.5%;
+        }
+
+    }
+
+    .situation-ttl9{
+        bottom: 0;
+        left: 0;
+        margin-bottom: 57%;
+        margin-left: 33.5%;
+        animation: situation 80s 64s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+            margin-bottom: 55%;
+            margin-left: 31.5%;
+        }
+    }
+
+    .situation-ttl10{
+        bottom: 0;
+        left: 0;
+        margin-bottom: 61.8%;
+        margin-left: 6.5%;
+        animation: situation 80s 72s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        @include pc{
+            animation: none!important;
+        margin-bottom: 58%;
+        margin-left: 8.5%;
+        }
+    }
+    
+
+    @keyframes situation{
+        0%{
+            transform: scale(0,0);
+            opacity: 0;
+        }
+        1%{
+            transform: scale(0,0);
+            opacity: 1;
+        }
+        2%,8.5%{
+            transform: scale(1,1);
+            opacity: 1;
+        }
+        10%,100%{
+            transform: scale(0,0);
+            opacity: 0;
+        }
+    }
+
+    @include pc{
+    .map-num_1:hover + .situation-ttl1   {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_2:hover + .situation-ttl2 {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_3:hover + .situation-ttl3   {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_4:hover + .situation-ttl4 {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_5:hover + .situation-ttl5   {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_6:hover + .situation-ttl6 {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_7:hover + .situation-ttl7   {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_8:hover + .situation-ttl8 {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_9:hover + .situation-ttl9   {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .map-num_10:hover + .situation-ttl10 {
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity .2s ease;
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}

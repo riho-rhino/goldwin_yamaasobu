@@ -40,16 +40,23 @@
     flex-wrap: nowrap;
     gap: 45px;
     font-size: spFont(40);
+    &:first-of-type {
+        padding-left: 40px;
+        animation: loop3 40s -20s linear infinite;
+        @include pc{
+            animation: loop3 50s -25s linear infinite;
+        }
+    }
+    &:last-of-type {
+        animation: loop4 40s linear infinite;   
+        @include pc{
+            animation: loop4 50s linear infinite;   
+        }
+    }
+    
     @include pc{
         font-size: pcFont(20);
         gap: 50px;
-    }
-    &:first-of-type {
-        padding-left: 40px;
-        animation: loop3 50s -25s linear infinite;
-    }
-    &:last-of-type {
-        animation: loop4 50s linear infinite;   
     }
 
     .weather-icon{

@@ -6,7 +6,7 @@
 .yamaasobu_mv{
     position: relative;
     width: 100%;
-    height: 100svh;
+    // height: 100svh;
     overflow: hidden;
 
     .mv_word-wrap{
@@ -16,28 +16,23 @@
             font-size: spFont(36);
             font-weight: 600;
             overflow: hidden;
+            line-height: 1.5;
             span{
                 display: inline-block;
                 transform: translateY(100px);
-                transition: transform .5s linear;
+                transition: transform .4s linear;
             }
             
             &.show{
                 &.subttl_above{
                     span{
                         transform: translateY(0);
-                        &:nth-of-type(2){
-                            transition-delay: .4s;
-                        }
-                        &:nth-of-type(3){
-                            transition-delay: .8s;
-                        }
                     }
                 }
                 &.subttl_bottom{
                     span{
                         transform: translateY(0);
-                        transition-delay: 1.2s;
+                        transition-delay: .4s;
                     }
                 }
             }
@@ -50,75 +45,12 @@
             .subttl{
                 font-size: min(pcFont(24),24px);
             }
-            // .ttl{
-            //     width: pcCalc(320);
-            //     max-width: 320px;
-            //     margin: 0 auto{
-            //         top: pcCalc(24);
-            //     };
-            // }
+
         }
     }
-    
 
 }
 
-// .ttl{
-//     line-height: 0;
-//     position: relative;
-//     width: spCalc(320);
-//     margin: 0 auto{
-//         top: spCalc(30);
-//     };
-//     .ttl_img{
-//         opacity: 0;
-//         transition: all .5s 1.5s ease;
-//     }
-
-//     .svg_ttl{
-//         position: absolute;
-//         width: 100%;
-//         top: 0;
-//         left: 0;
-//         line-height: 0;  
-//         opacity: 1;
-//         transition: all .2s 1.5s ease;
-
-//     }
-
-//     svg{
-//         position: absolute;
-//         width: 100%;
-//         top: 0;
-//         left: 0;
-//         line-height: 0;  
-//         height: fit-content;
-//         aspect-ratio: 16 / 5;
-//     }
-//     &.show{
-//         .ttl_img{
-//             opacity: 1;
-//         }
-//         .svg_ttl{
-//             opacity: 0;
-//         }
-//         .svg-elem-1 {
-//             -webkit-animation: animate-svg-stroke-1 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0s both;
-//                     animation: animate-svg-stroke-1 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0s both;
-//         }
-//         .svg-elem-2 {
-//             -webkit-animation: animate-svg-stroke-2 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.22s both;
-//                     animation: animate-svg-stroke-2 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.22s both;
-//         }
-        
-//         .svg-elem-3 {
-//             -webkit-animation: animate-svg-stroke-3 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.44s both;
-//                     animation: animate-svg-stroke-3 1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.44s both;        
-//         }
-
-//     }
-    
-// }
 
 .ttl{
     font-size: spFont(100);
@@ -277,7 +209,7 @@
 
     .mv-swiper-text-wrap{
         opacity: 0;
-        transition: opacity .5s 1s ease;
+        transition: opacity .5s 2s ease;
         .mv_swiper-ttl{
             margin-top: spCalc(60);
             font-size: spFont(40);
@@ -307,7 +239,7 @@
 
     .swiper-pagination{
         opacity: 0;
-        transition: opacity .5s 1s ease;
+        transition: opacity .5s 2s ease;
         bottom: 0!important;
         @include pc{
             bottom: unset!important;
@@ -322,7 +254,7 @@
     .swiper-button-prev,
     .swiper-button-next{
         opacity: 0;
-        transition: opacity .5s 1s ease;
+        transition: opacity .5s 2s ease;
         top: 29% !important;
         @include pc{
             top: 0!important;
@@ -404,13 +336,13 @@
     margin: 0 auto{
         top: spCalc(177);
     };
-    margin: 0 auto;
     overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     @include pc{
         width: 90%;
+        margin: 0 auto;
     }
     .line-wrap{
         display: flex;
@@ -418,10 +350,18 @@
         align-items: center;
         gap: 12px;  
         &:first-of-type {
-            animation: loop 50s -25s linear infinite;
+            animation: loop 40s -20s linear infinite;
         }
         &:last-of-type {
-            animation: loop2 50s linear infinite;  
+            animation: loop2 40s linear infinite;  
+        }
+        @include pc{
+            &:first-of-type {
+                animation: loop 50s -25s linear infinite;
+            }
+            &:last-of-type {
+                animation: loop2 50s linear infinite;  
+            }
         }
     }
     .line-txt{

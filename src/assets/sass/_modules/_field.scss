@@ -14,6 +14,20 @@
     margin-top: spCalc(100);
     background-size: 100%;
 
+    .swiper-slide{
+        a{
+            color: #fff;
+            opacity: 1;
+            transition: opacity .3s ease;
+        }
+        &:hover{
+            a{
+                opacity: 0.7;
+            }
+        }
+    }
+
+
     &.move {
         .fieldttl {
             &::after {
@@ -177,6 +191,9 @@
 
     .field-photo {
         line-height: 0;
+        img{
+            border-radius: 6px;
+        }
     }
 
     .field-swiper-wrap {
@@ -190,6 +207,7 @@
         .swiper-text {
             font-size: spFont(28);
             margin-top: spCalc(60);
+            font-feature-settings: "palt";
         }
 
         @include pc {

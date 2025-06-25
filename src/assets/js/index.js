@@ -14,22 +14,19 @@ async function opning() {
   await tick(100);
   $('.op-ja').addClass('show');
   $('.op-en').addClass('show');
-  await tick(300);
+  $('.opening').addClass('show');
   $('.op-map-wrap').addClass('show');
-  // await tick(3);
-  await tick(3800);
-  $('.opening').fadeOut(500);
+  await tick(2900);
+  $('.opening').fadeOut(400);
   await tick(300);
   $('.subttl').addClass('show');
   $('body').removeClass('noscroll');
-  await tick(2000);
+  await tick(1100);
   $('.ttl').addClass('show');
   $('.mv_wrapper').addClass('start');
-  // await tick(1300);
+  $('.mv-swiper').addClass('show');
   await tick(900);
   $('.three_bu-wrap').addClass('show');
-  await tick(500);
-  $('.mv-swiper').addClass('show');
   await tick(2000);
   $('.mv-swiper').addClass('start');
 
@@ -259,12 +256,12 @@ const fieldSwiper = new Swiper(".field-swiper", {
 const apiKey = 'ae1de34a065b92514dcacf0d4295d081';
 const cities = {
   tokyo: 'Tokyo,jp',
-  osaka: 'Osaka,jp',
-  okinawa: 'Okinawa,jp',
-  sapporo: 'Sapporo,jp', // hokkaidoをsapporoに変更
-  fukuoka: 'Fukuoka,jp'
+  nagano: 'Nagano,jp', // 長野に変更
+  sapporo: 'Sapporo,jp', 
+  kumamoto: 'Kumamoto,jp', // 熊本追加
+  matsuyama: 'Matsuyama,jp', // 愛媛松山追加
+  yamagata: 'Yamagata,jp' // 山形追加
 };
-
 
 async function getWeather(city) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ja`;
@@ -296,33 +293,57 @@ function getWeatherIcon(main) {
     case 'Clouds': return '<div class="weather-icon"><img class="cloud-icon" src="./assets/img/cloud.png" alt="曇り"></div>';
     case 'Snow': return '<div class="weather-icon"><img class="snow-icon" src="./assets/img/snow.png" alt="雪"></div>';
     default: return '<div class="weather-icon"><img class="cloud-icon" src="./assets/img/cloud.png" alt="曇り"></div>';
-
   }
 }
 
 // 各都市の天気情報を表示
+// async function displayWeather() {
+//   const tokyoWeather = await getWeather(cities.tokyo);
+//   const naganoWeather = await getWeather(cities.nagano); // 長野の天気情報
+//   const sapporoWeather = await getWeather(cities.sapporo);
+//   const kumamotoWeather = await getWeather(cities.kumamoto); // 熊本の天気情報
+//   const matsuyamaWeather = await getWeather(cities.matsuyama); // 松山の天気情報
+//   const yamagataWeather = await getWeather(cities.yamagata); // 山形の天気情報
+
+//   document.getElementById('tokyo').innerHTML = `${tokyoWeather.weatherIcon} <div class="weather-txt"><span>tokyo</span>${tokyoWeather.temperature}</div>`;
+//   document.getElementById('nagano').innerHTML = `${naganoWeather.weatherIcon} <div class="weather-txt"><span>nagano</span>${naganoWeather.temperature}</div>`;
+//   document.getElementById('sapporo').innerHTML = `${sapporoWeather.weatherIcon} <div class="weather-txt"><span>hokkaido</span>${sapporoWeather.temperature}</div>`;
+//   document.getElementById('kumamoto').innerHTML = `${kumamotoWeather.weatherIcon} <div class="weather-txt"><span>kumamoto</span>${kumamotoWeather.temperature}</div>`;
+//   document.getElementById('matsuyama').innerHTML = `${matsuyamaWeather.weatherIcon} <div class="weather-txt"><span>ehime</span>${matsuyamaWeather.temperature}</div>`;
+//   document.getElementById('yamagata').innerHTML = `${yamagataWeather.weatherIcon} <div class="weather-txt"><span>yamagata</span>${yamagataWeather.temperature}</div>`;
+
+//   document.getElementById('tokyo-2').innerHTML = `${tokyoWeather.weatherIcon} <div class="weather-txt"><span>tokyo</span>${tokyoWeather.temperature}</div>`;
+//   document.getElementById('nagano-2').innerHTML = `${naganoWeather.weatherIcon} <div class="weather-txt"><span>nagano</span>${naganoWeather.temperature}</div>`;
+//   document.getElementById('sapporo-2').innerHTML = `${sapporoWeather.weatherIcon} <div class="weather-txt"><span>hokkaido</span>${sapporoWeather.temperature}</div>`;
+//   document.getElementById('kumamoto-2').innerHTML = `${kumamotoWeather.weatherIcon} <div class="weather-txt"><span>kumamoto</span>${kumamotoWeather.temperature}</div>`;
+//   document.getElementById('matsuyama-2').innerHTML = `${matsuyamaWeather.weatherIcon} <div class="weather-txt"><span>ehime</span>${matsuyamaWeather.temperature}</div>`;
+//   document.getElementById('yamagata-2').innerHTML = `${yamagataWeather.weatherIcon} <div class="weather-txt"><span>yamagata</span>${yamagataWeather.temperature}</div>`;
+// }
+
 async function displayWeather() {
-  const tokyoWeather = await getWeather(cities.tokyo);
-  const osakaWeather = await getWeather(cities.osaka);
-  const okinawaWeather = await getWeather(cities.okinawa);
-  const sapporoWeather = await getWeather(cities.sapporo);
-  const fukuokaWeather = await getWeather(cities.fukuoka);
+  const weatherPromises = Object.values(cities).map(city => getWeather(city));
+  const [tokyoWeather, naganoWeather, sapporoWeather, kumamotoWeather, matsuyamaWeather, yamagataWeather] = await Promise.all(weatherPromises);
 
   document.getElementById('tokyo').innerHTML = `${tokyoWeather.weatherIcon} <div class="weather-txt"><span>tokyo</span>${tokyoWeather.temperature}</div>`;
-  document.getElementById('osaka').innerHTML = `${osakaWeather.weatherIcon} <div class="weather-txt"><span>osaka</span>${osakaWeather.temperature}</div>`;
-  document.getElementById('okinawa').innerHTML = `${okinawaWeather.weatherIcon} <div class="weather-txt"><span>okinawa</span>${okinawaWeather.temperature}</div>`;
+  document.getElementById('nagano').innerHTML = `${naganoWeather.weatherIcon} <div class="weather-txt"><span>nagano</span>${naganoWeather.temperature}</div>`;
   document.getElementById('sapporo').innerHTML = `${sapporoWeather.weatherIcon} <div class="weather-txt"><span>hokkaido</span>${sapporoWeather.temperature}</div>`;
-  document.getElementById('fukuoka').innerHTML = `${fukuokaWeather.weatherIcon} <div class="weather-txt"><span>fukuoka</span>${fukuokaWeather.temperature}</div>`;
-
+  document.getElementById('kumamoto').innerHTML = `${kumamotoWeather.weatherIcon} <div class="weather-txt"><span>kumamoto</span>${kumamotoWeather.temperature}</div>`;
+  document.getElementById('matsuyama').innerHTML = `${matsuyamaWeather.weatherIcon} <div class="weather-txt"><span>ehime</span>${matsuyamaWeather.temperature}</div>`;
+  document.getElementById('yamagata').innerHTML = `${yamagataWeather.weatherIcon} <div class="weather-txt"><span>yamagata</span>${yamagataWeather.temperature}</div>`;
+  
   document.getElementById('tokyo-2').innerHTML = `${tokyoWeather.weatherIcon} <div class="weather-txt"><span>tokyo</span>${tokyoWeather.temperature}</div>`;
-  document.getElementById('osaka-2').innerHTML = `${osakaWeather.weatherIcon} <div class="weather-txt"><span>osaka</span>${osakaWeather.temperature}</div>`;
-  document.getElementById('okinawa-2').innerHTML = `${okinawaWeather.weatherIcon} <div class="weather-txt"><span>okinawa</span>${okinawaWeather.temperature}</div>`;
+  document.getElementById('nagano-2').innerHTML = `${naganoWeather.weatherIcon} <div class="weather-txt"><span>nagano</span>${naganoWeather.temperature}</div>`;
   document.getElementById('sapporo-2').innerHTML = `${sapporoWeather.weatherIcon} <div class="weather-txt"><span>hokkaido</span>${sapporoWeather.temperature}</div>`;
-  document.getElementById('fukuoka-2').innerHTML = `${fukuokaWeather.weatherIcon} <div class="weather-txt"><span>fukuoka</span>${fukuokaWeather.temperature}</div>`;
+  document.getElementById('kumamoto-2').innerHTML = `${kumamotoWeather.weatherIcon} <div class="weather-txt"><span>kumamoto</span>${kumamotoWeather.temperature}</div>`;
+  document.getElementById('matsuyama-2').innerHTML = `${matsuyamaWeather.weatherIcon} <div class="weather-txt"><span>ehime</span>${matsuyamaWeather.temperature}</div>`;
+  document.getElementById('yamagata-2').innerHTML = `${yamagataWeather.weatherIcon} <div class="weather-txt"><span>yamagata</span>${yamagataWeather.temperature}</div>`;
 }
+
 
 // ページが読み込まれたときに天気情報を表示
 displayWeather();
+
+
 
 
 // mapをスマホ時センターにする

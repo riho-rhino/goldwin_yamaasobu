@@ -4,6 +4,11 @@
     @content;
   }
 }
+@mixin wpc {
+  @media screen and (min-width: 1700px) {
+    @content;
+  }
+}
 // スマホサイズ
 @mixin sp {
   @media screen and (max-width: 768px) {
